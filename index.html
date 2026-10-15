@@ -237,7 +237,7 @@
 .qr-actions button{background:#fff;color:#173a52;border:1px solid #cbd9e1;padding:9px 11px;border-radius:5px;font-size:11px;font-weight:800;cursor:pointer}
 .qr-actions button:hover{background:#eaf4f7}
 .qr-scan-help{display:flex;gap:11px;align-items:center;margin-top:15px;padding:11px;background:#fff;border-radius:8px;border:1px solid #d2e4ea;color:#18394c}
-#publicDemoQr{flex:0 0 100px;min-height:100px;max-width:100px;display:grid;place-items:center}
+#publicDemoQr{flex:0 0 146px;min-height:146px;max-width:146px;display:grid;place-items:center}
 #publicDemoQr img,#publicDemoQr canvas{max-width:100%;height:auto}
 .qr-scan-help strong{display:block;font-size:11px}
 .qr-scan-help p{font-size:10px;line-height:1.55;margin:4px 0 0}
@@ -512,7 +512,7 @@
   });
   $('#footerYear').textContent=new Date().getFullYear();
   const featureLogo=$('#heroLogo');if(featureLogo)featureLogo.src=$('.brand-mark').src;
-  renderPortfolio();renderQR('#publicDemoQr','PX-DEMO-001',100);
+  renderPortfolio();renderQR('#publicDemoQr','PX-DEMO-001',146);
   const directCode=new URLSearchParams(window.location.search).get('codigo');
   if(directCode&&directCode.length<=50){$('#inlineTrackingCode').value=directCode;renderTracker(directCode,'#inlineTrackerResult');}
 
