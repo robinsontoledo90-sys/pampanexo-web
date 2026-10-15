@@ -205,6 +205,46 @@
 .passport-admin-item button{border:0;background:transparent;color:#ae6a40;cursor:pointer;font-size:12px;font-weight:800}
 @media(max-width:900px){.passport-layout{grid-template-columns:1fr;gap:30px}.passport-section{padding:60px 0}}
 @media(max-width:540px){.passport-ui-body{padding:20px}.passport-extra-grid,.passport-admin-list{grid-template-columns:1fr}}
+
+/* PAMPANEXO · Identidad protagonista + comprobante QR · v5 */
+.site-header{height:110px}
+.nav-layout{gap:20px}
+.brand{gap:11px}
+.site-header .brand-mark{width:113px;height:92px;object-fit:contain;filter:drop-shadow(0 3px 7px rgba(9,35,54,.15))}
+.site-header .brand-text strong{font-size:23px;letter-spacing:.05em}
+.site-header .brand-text small{font-size:8px;letter-spacing:.115em}
+.site-nav{gap:18px}
+.site-nav a{font-size:11px}
+.hero-brand-feature{display:flex;align-items:center;gap:20px;background:linear-gradient(105deg,rgba(255,255,255,.11),rgba(255,255,255,.035));border:1px solid rgba(127,223,244,.4);border-left:4px solid #dc9d65;box-shadow:0 18px 55px rgba(1,9,17,.22),inset 0 1px 0 rgba(255,255,255,.12);border-radius:12px;padding:14px 20px 14px 14px;margin-bottom:24px;max-width:630px}
+.hero-logo-plaque{width:215px;min-width:215px;height:154px;background:#fff;border-radius:9px;display:grid;place-items:center;box-shadow:0 10px 27px rgba(1,9,18,.26);padding:6px}
+.hero-logo-plaque img{width:100%;height:100%;object-fit:contain}
+.hero-brand-wordmark{min-width:0}
+.hero-brand-wordmark small{display:block;letter-spacing:.2em;font-size:10px;color:#f0ad7b;font-weight:800;margin-bottom:9px}
+.hero-brand-wordmark strong{display:block;font-size:clamp(27px,3vw,40px);color:#fff;font-weight:900;letter-spacing:.025em;line-height:1.1;overflow-wrap:anywhere;text-shadow:0 4px 24px #020f1ca6}
+.hero-brand-wordmark span{display:block;font-size:11px;color:#b8deeb;letter-spacing:.06em;margin-top:10px;line-height:1.5}
+.hero .hero-grid{padding-top:56px;padding-bottom:56px;min-height:630px}
+.qr-receipt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:linear-gradient(135deg,#f5f9fb,#fff 55%,#fbf3eb);border:1px solid #cadde6;border-top:4px solid #b8774a;border-radius:11px;padding:22px;margin:20px 0 24px}
+.qr-receipt h3{font-size:20px!important;margin:7px 0 10px!important;color:#123249!important}
+.qr-receipt-label{display:block;font-size:10px;font-weight:900;letter-spacing:.12em;color:#aa6d44}
+.qr-receipt-info p{color:#4e687b;font-size:12px;line-height:1.65}
+.qr-code-text{display:inline-block;background:#112f48;color:#fff;border-radius:6px;padding:10px 14px;font-family:monospace;font-size:18px;font-weight:800;letter-spacing:.045em;overflow-wrap:anywhere;margin:12px 0}
+.qr-receipt-disclaimer{font-size:10px!important;color:#836a57!important}
+.qr-visual{padding:12px;background:#fff;border-radius:9px;box-shadow:0 8px 26px #102b431c;text-align:center;min-width:212px}
+#orderQr{width:188px;min-height:188px;display:grid;place-items:center}
+#orderQr img,#orderQr canvas{max-width:100%;height:auto}
+.qr-visual small{font-weight:800;display:block;font-size:9px;color:#39536a;margin:9px 0 2px}
+.qr-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+.qr-actions button{background:#fff;color:#173a52;border:1px solid #cbd9e1;padding:9px 11px;border-radius:5px;font-size:11px;font-weight:800;cursor:pointer}
+.qr-actions button:hover{background:#eaf4f7}
+.qr-scan-help{display:flex;gap:11px;align-items:center;margin-top:15px;padding:11px;background:#fff;border-radius:8px;border:1px solid #d2e4ea;color:#18394c}
+#publicDemoQr{flex:0 0 100px;min-height:100px;max-width:100px;display:grid;place-items:center}
+#publicDemoQr img,#publicDemoQr canvas{max-width:100%;height:auto}
+.qr-scan-help strong{display:block;font-size:11px}
+.qr-scan-help p{font-size:10px;line-height:1.55;margin:4px 0 0}
+@media(max-width:1250px){.site-header .brand-mark{width:90px;height:75px}.site-header .brand-text strong{font-size:18px}.site-nav{gap:12px}.site-nav a{font-size:10px}.nav-layout{gap:14px}}
+@media(max-width:900px){.site-header{height:92px}.site-header .brand-mark{width:92px;height:72px}.hero-brand-feature{max-width:100%}.hero .hero-grid{min-height:0}.qr-receipt{grid-template-columns:1fr}.qr-visual{justify-self:start}}
+@media(max-width:540px){.hero-brand-feature{flex-direction:column;align-items:center;gap:13px;text-align:center;padding:15px}.hero-logo-plaque{width:min(240px,100%);min-width:0;height:159px}.hero-brand-wordmark strong{font-size:34px}.hero-brand-wordmark span{font-size:10px}.hero .hero-grid{padding-top:36px}.qr-receipt{padding:14px}.qr-code-text{font-size:15px}.qr-visual{justify-self:center}.site-header .brand-mark{width:76px;height:66px}.site-header .brand-text strong{font-size:17px}}
+@media print{body *{visibility:hidden!important}.qr-receipt,.qr-receipt *{visibility:visible!important}.qr-receipt{display:grid!important;position:fixed!important;left:20px!important;top:20px!important;width:calc(100% - 40px)!important;border:2px solid #173a52!important;background:white!important;box-shadow:none!important;grid-template-columns:1fr auto!important}.qr-actions{display:none!important}}
 </style>
   
 </head>
@@ -233,7 +273,7 @@
       <section class="hero">
         <div class="hero-grain"></div>
         <div class="container hero-grid">
-          <div class="hero-copy"><div class="v4-tag"><span class="v4-tag-dot"></span> PAMPANEXO DIGITAL <b>EDICIÓN 04</b></div>
+          <div class="hero-copy"><div class="hero-brand-feature"><div class="hero-logo-plaque"><img id="heroLogo" alt="Logo corporativo de PAMPANEXO"></div><div class="hero-brand-wordmark"><small>TECNOLOGÍA CON IDENTIDAD NORTEÑA</small><strong>PAMPANEXO</strong><span>CONSULTORÍA Y SOLUCIONES INFORMÁTICAS</span></div></div><div class="v4-tag"><span class="v4-tag-dot"></span> PAMPANEXO DIGITAL <b>EDICIÓN 04</b></div>
             <div class="eyebrow"><span class="eyebrow-line"></span> PAMPANEXO · CONSULTORÍA INFORMÁTICA DESDE TARAPACÁ</div>
             <h1>Tu tecnología, <em>en buenas manos.</em></h1>
             <p>Soporte, sistemas y soluciones digitales para personas y empresas. Tecnología que funciona, se entiende y evoluciona contigo.</p>
@@ -316,8 +356,8 @@
       <section class="section tracking-banner" id="seguimiento">
         <div class="container track-inner track-inner-v2">
           <div class="track-emblem" aria-hidden="true">▤</div>
-          <div class="track-intro"><span class="kicker kicker-light">SEGUIMIENTO DE SERVICIOS</span><h2>¿Cómo avanza tu servicio?</h2><p>Consulta el estado de tu orden con el código que te entregue PAMPANEXO. No necesitas crear una cuenta.</p></div>
-          <form class="inline-tracker-form" id="inlineTrackerForm" aria-label="Consultar seguimiento"><label for="inlineTrackingCode">CÓDIGO DE SEGUIMIENTO</label><div class="inline-tracker-controls"><input id="inlineTrackingCode" name="trackingCode" type="text" placeholder="PX-DEMO-001" maxlength="50" required autocomplete="off" autocapitalize="characters"><button class="btn btn-copper" type="submit">Consultar →</button></div><small>Demostración: prueba el código <button type="button" id="inlineExampleCode">PX-DEMO-001</button></small></form>
+          <div class="track-intro"><span class="kicker kicker-light">SEGUIMIENTO DE SERVICIOS</span><h2>¿Cómo avanza tu servicio?</h2><p>Recibirás un código y un QR para consultar cómo avanza tu computador. Escanea el QR con tu celular o escribe el código; no necesitas crear una cuenta.</p></div>
+          <form class="inline-tracker-form" id="inlineTrackerForm" aria-label="Consultar seguimiento"><label for="inlineTrackingCode">CÓDIGO DE SEGUIMIENTO</label><div class="inline-tracker-controls"><input id="inlineTrackingCode" name="trackingCode" type="text" placeholder="PX-DEMO-001" maxlength="50" required autocomplete="off" autocapitalize="characters"><button class="btn btn-copper" type="submit">Consultar →</button></div><small>Demostración: prueba el código <button type="button" id="inlineExampleCode">PX-DEMO-001</button></small><div class="qr-scan-help"><div id="publicDemoQr" aria-label="QR de seguimiento ficticio"></div><div><strong>Prueba el QR de ejemplo</strong><p>Al escanearlo, se abrirá esta página con un servicio ficticio. Los códigos de clientes reales requerirán la base de datos compartida.</p></div></div></form>
         </div>
         <div class="container inline-tracker-result" id="inlineTrackerResult" aria-live="polite" role="status"></div>
       </section>
@@ -334,6 +374,7 @@
   <div class="modal-backdrop" id="trackerModal" hidden><div class="modal tracker-modal" role="dialog" aria-modal="true" aria-labelledby="trackerTitle"><button class="close-modal" type="button" data-close-modal aria-label="Cerrar">×</button><span class="modal-kicker">CONSULTA DE AVANCE</span><h2 id="trackerTitle">Seguimiento de tu servicio</h2><p>Ingresa tu código de demostración para consultar únicamente el avance público del servicio. No se mostrarán notas internas ni datos del cliente.</p><form id="trackerForm" class="tracker-input"><label for="trackingCode">CÓDIGO DE SEGUIMIENTO</label><div><input type="text" id="trackingCode" placeholder="PX-DEMO-001" autocapitalize="characters" maxlength="40" required><button type="submit" class="btn btn-navy">Consultar →</button></div></form><button id="useExampleCode" class="example-link" type="button">Usar código de ejemplo: PX-DEMO-001</button><div id="trackerResult" aria-live="polite"></div></div></div>
   <div class="modal-backdrop" id="editorModal" hidden><div class="modal editor-modal" role="dialog" aria-modal="true" aria-labelledby="editorTitle"><button class="close-modal" type="button" data-close-modal aria-label="Cerrar">×</button><span class="modal-kicker" id="editorKicker">GESTIÓN INTERNA</span><h2 id="editorTitle">Nueva orden</h2><div id="editorContent"></div></div></div>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>/*
  * PAMPANEXO · PROTOTIPO LOCAL DE DEMOSTRACIÓN
  * NO contiene autenticación, almacenamiento compartido ni envío real de formularios.
@@ -388,6 +429,23 @@
   function visibleOrders(){return currentRole==='admin'?data.orders:data.orders.filter(o=>o.assigned===STAFF[0]);}
   function readForm(form){return Object.fromEntries(new FormData(form).entries());}
   function renderPortfolio(){const container=$('#publicPortfolio');const items=data.portfolio.filter(x=>x.published);container.innerHTML=items.length?items.map(p=>`<article class="project-card"><div class="project-art tone-${esc(p.tone)}"><span class="project-art-label">${esc(p.label)}</span><span class="project-art-icon" aria-hidden="true">${esc(p.icon||'◈')}</span></div><div class="project-body"><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p></div></article>`).join(''):'<div class="empty-state">Próximamente mostraremos nuestros proyectos.</div>';}
+
+  // La URL dirige al seguimiento de esta misma web; QR generado localmente en el navegador.
+  function trackingUrl(code){
+    const url=new URL(window.location.pathname,window.location.origin);
+    url.searchParams.set('codigo',String(code)); url.hash='seguimiento';
+    return url.href;
+  }
+  function renderQR(selector,code,size){
+    const host=$(selector);if(!host)return;
+    host.innerHTML='';
+    if(typeof window.QRCode!=='function'){
+      host.innerHTML='<small>QR no disponible. Usa el código escrito.</small>';
+      return;
+    }
+    try{new window.QRCode(host,{text:trackingUrl(code),width:size,height:size,colorDark:'#102b43',colorLight:'#ffffff',correctLevel:window.QRCode.CorrectLevel.M});}
+    catch(error){host.innerHTML='<small>QR no disponible. Usa el código escrito.</small>';}
+  }
   function renderTracker(code, target='#trackerResult'){
     const result=$(target); const order=data.orders.find(o=>o.code.toUpperCase()===String(code).trim().toUpperCase());
     if(!order){result.innerHTML='<div class="track-result-card"><strong>No encontramos ese código en esta demostración.</strong><p>Comprueba que esté escrito correctamente. Puedes probar con PX-DEMO-001, PX-DEMO-002 o PX-DEMO-003.</p></div>';return;}
@@ -407,12 +465,12 @@
   function renderPortfolioPanel(){return `<div class="dash-intro"><div><h2>Portafolio público</h2><p>Administra las tarjetas que aparecen en la sección «Nuestro trabajo» de esta demostración.</p></div><button class="btn btn-navy" data-add="portfolio">+ Añadir trabajo</button></div><div class="dash-port-grid">${data.portfolio.map(p=>`<article class="dash-port-card"><div class="project-art tone-${esc(p.tone)}"><span class="project-art-label">${esc(p.label)}</span><span class="project-art-icon">${esc(p.icon)}</span></div><div><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p><button data-edit-portfolio="${esc(p.id)}">Editar tarjeta →</button> <span style="float:right;font-size:10px;color:#81909c">${p.published?'Visible':'Oculta'}</span></div></article>`).join('')}</div><div class="dash-hint">Para mostrar trabajos reales será necesario confirmar qué proyectos pueden divulgarse y contar con autorización para publicar fotos, resultados y nombres de clientes.</div>`;}
   function openEditor(kind,id){const content=$('#editorContent');if(kind==='order'){
       const o=data.orders.find(x=>x.id===id), editing=Boolean(o);$('#editorTitle').textContent=editing?'Detalle de la orden':'Crear orden de ejemplo';
-      if(editing){const allowed=canEditOrder(o);content.innerHTML=`<div class="detail-grid"><div><span>Código de seguimiento</span><strong>${esc(o.code)}</strong><button class="copy-code-btn" type="button" data-copy-code="${esc(o.code)}">Copiar código ↗</button></div><div><span>Cliente</span><strong>${esc(clientFor(o))}</strong></div><div><span>Equipo / servicio</span><strong>${esc(o.device||'No especificado')}</strong></div><div><span>Responsable</span><strong>${esc(o.assigned)}</strong></div></div><h3 style="font-size:15px;margin-top:24px;color:#102941">Historial de avance</h3><div class="detail-timeline">${o.timeline.map(t=>`<div class="timeline-entry"><strong>${esc(t.status)}</strong><small>${esc(formatDate(t.at))}</small><p>${esc(t.text)}</p></div>`).join('')}</div>${allowed?`<form class="editor-form" id="updateOrderForm" data-order-id="${esc(o.id)}"><div class="two-inputs"><label>Nuevo estado<select name="status">${STATUSES.map(s=>`<option ${o.status===s?'selected':''}>${esc(s)}</option>`).join('')}</select></label><label>Entrega estimada<input type="date" name="dueDate" value="${esc(o.dueDate||'')}"></label></div>${currentRole==='admin'?`<label>Responsable<select name="assigned">${STAFF.map(s=>`<option ${o.assigned===s?'selected':''}>${esc(s)}</option>`).join('')}</select></label>`:''}<label>Nota interna del técnico (NO visible para el cliente)<textarea rows="3" name="note" maxlength="500" placeholder="Observaciones internas y detalles técnicos...">${esc(o.note||'')}</textarea></label><label>Mensaje público de avance (visible con el código)<textarea rows="2" name="publicUpdate" maxlength="280" placeholder="Ej.: Terminamos las pruebas; tu equipo está listo para retirar."></textarea></label><button class="btn btn-navy" type="submit">Guardar cambios de ejemplo →</button></form>`:'<p class="dash-hint">Esta orden de ejemplo está asignada a otro técnico y no puede editarse desde este rol.</p>'}`;
+      if(editing){const allowed=canEditOrder(o);content.innerHTML=`<div class="qr-receipt" id="qrReceipt" role="group" aria-label="Comprobante de seguimiento"><div class="qr-receipt-info"><span class="qr-receipt-label">PAMPANEXO · COMPROBANTE DE DEMOSTRACIÓN</span><h3>El seguimiento de tu equipo</h3><p>Entrega este comprobante al cliente: puede escanear el QR o escribir el código en nuestra página web.</p><strong class="qr-code-text">${esc(o.code)}</strong><p class="qr-receipt-disclaimer">Solo demostración. Las órdenes creadas en este navegador NO se sincronizan con otros dispositivos todavía.</p><div class="qr-actions"><button type="button" data-copy-link="${esc(o.code)}">Copiar enlace</button><button type="button" data-save-qr="${esc(o.code)}">Guardar QR</button><button type="button" data-print-qr>Imprimir comprobante</button></div></div><div class="qr-visual"><div id="orderQr" aria-label="Código QR de esta orden"></div><small>ESCANEA PARA CONSULTAR</small></div></div><div class="detail-grid"><div><span>Código de seguimiento</span><strong>${esc(o.code)}</strong><button class="copy-code-btn" type="button" data-copy-code="${esc(o.code)}">Copiar código ↗</button></div><div><span>Cliente</span><strong>${esc(clientFor(o))}</strong></div><div><span>Equipo / servicio</span><strong>${esc(o.device||'No especificado')}</strong></div><div><span>Responsable</span><strong>${esc(o.assigned)}</strong></div></div><h3 style="font-size:15px;margin-top:24px;color:#102941">Historial de avance</h3><div class="detail-timeline">${o.timeline.map(t=>`<div class="timeline-entry"><strong>${esc(t.status)}</strong><small>${esc(formatDate(t.at))}</small><p>${esc(t.text)}</p></div>`).join('')}</div>${allowed?`<form class="editor-form" id="updateOrderForm" data-order-id="${esc(o.id)}"><div class="two-inputs"><label>Nuevo estado<select name="status">${STATUSES.map(s=>`<option ${o.status===s?'selected':''}>${esc(s)}</option>`).join('')}</select></label><label>Entrega estimada<input type="date" name="dueDate" value="${esc(o.dueDate||'')}"></label></div>${currentRole==='admin'?`<label>Responsable<select name="assigned">${STAFF.map(s=>`<option ${o.assigned===s?'selected':''}>${esc(s)}</option>`).join('')}</select></label>`:''}<label>Nota interna del técnico (NO visible para el cliente)<textarea rows="3" name="note" maxlength="500" placeholder="Observaciones internas y detalles técnicos...">${esc(o.note||'')}</textarea></label><label>Mensaje público de avance (visible con el código)<textarea rows="2" name="publicUpdate" maxlength="280" placeholder="Ej.: Terminamos las pruebas; tu equipo está listo para retirar."></textarea></label><button class="btn btn-navy" type="submit">Guardar cambios de ejemplo →</button></form>`:'<p class="dash-hint">Esta orden de ejemplo está asignada a otro técnico y no puede editarse desde este rol.</p>'}`;
       } else {if(currentRole!=='admin')return;content.innerHTML=`<form id="createOrderForm" class="editor-form"><label>Cliente <select name="clientId" required><option value="">Selecciona un cliente</option>${data.clients.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('')}</select><small>Agrega clientes desde la sección «Clientes».</small></label><label>Descripción del servicio <input name="title" placeholder="Ej.: mantención de equipo" maxlength="110" required></label><div class="two-inputs"><label>Equipo / sistema<input name="device" maxlength="90" placeholder="Notebook, software, etc."></label><label>Fecha estimada<input type="date" name="dueDate"></label></div><label>Técnico responsable<select name="assigned">${STAFF.map(s=>`<option>${esc(s)}</option>`).join('')}</select></label><label>Nota inicial<textarea name="note" rows="3" maxlength="500" placeholder="Motivo del ingreso y observaciones..."></textarea></label><button type="submit" class="btn btn-navy">Crear orden de demostración →</button></form>`;}
     }else if(kind==='client'){$('#editorTitle').textContent='Nuevo cliente de ejemplo';content.innerHTML=`<form class="editor-form" id="createClientForm"><label>Nombre de cliente o empresa<input name="name" required maxlength="100" placeholder="Ejemplo: Empresa de demostración"></label><label>Observaciones<input name="detail" maxlength="240" placeholder="Información de prueba, sin datos personales"></label><button type="submit" class="btn btn-navy">Guardar cliente de ejemplo →</button></form>`;
     }else if(kind==='portfolio'){
       const p=data.portfolio.find(x=>x.id===id);$('#editorTitle').textContent=p?'Editar tarjeta':'Añadir al portafolio';content.innerHTML=`<form id="portfolioForm" class="editor-form" data-id="${esc(id||'')}"><label>Título<input name="name" maxlength="90" value="${esc(p?.name||'')}" required></label><label>Descripción<textarea name="desc" rows="3" maxlength="350" required>${esc(p?.desc||'')}</textarea></label><div class="two-inputs"><label>Estado o etiqueta<select name="label">${['PROTOTIPO','EN DESARROLLO','PROYECTO PILOTO','TRABAJO REAL'].map(s=>`<option ${p?.label===s?'selected':''}>${s}</option>`).join('')}</select></label><label>Color<select name="tone">${[1,2,3,4,5].map(t=>`<option value="${t}" ${p?.tone===t?'selected':''}>Estilo ${t}</option>`).join('')}</select></label></div><label>Icono<select name="icon">${['◈','▤','⌘','◉','✳'].map(s=>`<option ${p?.icon===s?'selected':''}>${s}</option>`).join('')}</select></label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" name="published" style="width:auto;margin:0" ${p?.published!==false?'checked':''}> Mostrar en el sitio público</label><p class="small-help">No publiques nombres, imágenes ni resultados de clientes sin autorización.</p><button type="submit" class="btn btn-navy">Guardar tarjeta →</button></form>`;}
-    showModal('editorModal');}
+    showModal('editorModal');if(kind==='order'&&id){const order=data.orders.find(x=>x.id===id);if(order)renderQR('#orderQr',order.code,188);}}
   function exportDemo(){const blob=new Blob([JSON.stringify({note:'Datos ficticios exportados desde el prototipo local PAMPANEXO',...data},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='pampanexo-demostracion.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Archivo de demostración descargado.');}
   document.addEventListener('click',e=>{
     if(e.target.closest('#navToggle')){const expanded=$('#siteNav').classList.toggle('open');$('#navToggle').setAttribute('aria-expanded',String(expanded));return;}
@@ -427,6 +485,9 @@
     if(e.target.closest('#useExampleCode')){$('#trackingCode').value='PX-DEMO-001';renderTracker('PX-DEMO-001');return;}
     if(e.target.closest('#passportExample')){$('#inlineTrackingCode').value='PX-DEMO-001';renderTracker('PX-DEMO-001','#inlineTrackerResult');$('#seguimiento').scrollIntoView({behavior:'smooth',block:'start'});return;}
     if(e.target.closest('#inlineExampleCode')){$('#inlineTrackingCode').value='PX-DEMO-001';renderTracker('PX-DEMO-001','#inlineTrackerResult');return;}
+    if(e.target.closest('[data-print-qr]')){window.print();return;}
+    if(e.target.closest('[data-copy-link]')){const code=e.target.closest('[data-copy-link]').dataset.copyLink;const url=trackingUrl(code);if(navigator.clipboard?.writeText)navigator.clipboard.writeText(url).then(()=>toast('Enlace copiado.')).catch(()=>toast('No se pudo copiar el enlace.'));else toast('Enlace: '+url);return;}
+    if(e.target.closest('[data-save-qr]')){const code=e.target.closest('[data-save-qr]').dataset.saveQr;const host=$('#orderQr');const canvas=host?.querySelector('canvas');const img=host?.querySelector('img');const src=canvas?.toDataURL('image/png')||img?.src;if(!src||!src.startsWith('data:image/')){toast('No se pudo guardar el QR. Usa el código escrito.');return;}const a=document.createElement('a');a.download='Pampanexo-QR-'+code+'.png';a.href=src;a.click();return;}
     if(e.target.closest('[data-copy-code]')){const code=e.target.closest('[data-copy-code]').dataset.copyCode; if(navigator.clipboard?.writeText){navigator.clipboard.writeText(code).then(()=>toast('Código copiado.')).catch(()=>toast('Puedes seleccionar y copiar este código: '+code));}else{toast('Código de prueba: '+code);}return;}
     const nav=e.target.closest('[data-panel], [data-go-panel]');if(nav){renderPanel(nav.dataset.panel||nav.dataset.goPanel);return;}
     if(e.target.closest('[data-add]')){openEditor(e.target.closest('[data-add]').dataset.add);return;}
@@ -445,11 +506,16 @@
     if(form.id==='trackerForm'){renderTracker($('#trackingCode').value);return;}
     if(form.id==='inlineTrackerForm'){renderTracker($('#inlineTrackingCode').value,'#inlineTrackerResult');return;}
     if(form.id==='createClientForm'){data.clients.push({id:uid('cl'),name:v.name.trim(),detail:(v.detail||'').trim(),email:'',phone:''});save();closeModals();renderPanel('clientes');toast('Cliente de ejemplo añadido.');return;}
-    if(form.id==='createOrderForm'){let code=makeDemoCode();while(data.orders.some(o=>o.code===code))code=makeDemoCode();const stamp=now();const order={id:uid('or'),code,clientId:v.clientId,title:v.title.trim(),device:(v.device||'').trim(),status:'Recibido',assigned:v.assigned,createdAt:stamp,dueDate:v.dueDate||'',note:(v.note||'').trim(),timeline:[{status:'Recibido',at:stamp,text:'Servicio registrado en el prototipo.'}],publicTimeline:[{status:'Recibido',at:stamp,text:'Recibimos la solicitud de servicio.'}]};data.orders.push(order);save();closeModals();renderPanel('ordenes');toast('Orden ficticia '+code+' creada. Abre su detalle para copiar el código.');return;}
+    if(form.id==='createOrderForm'){let code=makeDemoCode();while(data.orders.some(o=>o.code===code))code=makeDemoCode();const stamp=now();const order={id:uid('or'),code,clientId:v.clientId,title:v.title.trim(),device:(v.device||'').trim(),status:'Recibido',assigned:v.assigned,createdAt:stamp,dueDate:v.dueDate||'',note:(v.note||'').trim(),timeline:[{status:'Recibido',at:stamp,text:'Servicio registrado en el prototipo.'}],publicTimeline:[{status:'Recibido',at:stamp,text:'Recibimos la solicitud de servicio.'}]};data.orders.push(order);save();closeModals();renderPanel('ordenes');toast('Orden ficticia '+code+' creada. Abre su detalle para entregar el QR y el código.');return;}
     if(form.id==='updateOrderForm'){const order=data.orders.find(x=>x.id===form.dataset.orderId);if(!order||!canEditOrder(order))return;const changed=order.status!==v.status;const publicUpdate=(v.publicUpdate||'').trim();const stamp=now();if(changed||publicUpdate){order.timeline.push({status:v.status,at:stamp,text:changed?'Estado actualizado.':'Actualización pública registrada.'});order.publicTimeline.push({status:v.status,at:stamp,text:publicUpdate||('El estado del servicio cambió a «'+v.status+'».')});}order.status=v.status;order.dueDate=v.dueDate||'';order.note=(v.note||'').trim();if(currentRole==='admin')order.assigned=v.assigned;save();closeModals();renderPanel('ordenes');toast('Cambios guardados en este navegador.');return;}
     if(form.id==='portfolioForm'){let p=data.portfolio.find(x=>x.id===form.dataset.id);const val={name:v.name.trim(),desc:v.desc.trim(),label:v.label,tone:Number(v.tone),icon:v.icon,published:Boolean(v.published)};if(p)Object.assign(p,val);else data.portfolio.push({id:uid('port'),...val});save();closeModals();renderPanel('portafolio');renderPortfolio();toast('Portafolio actualizado en la demostración.');}
   });
-  $('#footerYear').textContent=new Date().getFullYear();renderPortfolio();
+  $('#footerYear').textContent=new Date().getFullYear();
+  const featureLogo=$('#heroLogo');if(featureLogo)featureLogo.src=$('.brand-mark').src;
+  renderPortfolio();renderQR('#publicDemoQr','PX-DEMO-001',100);
+  const directCode=new URLSearchParams(window.location.search).get('codigo');
+  if(directCode&&directCode.length<=50){$('#inlineTrackingCode').value=directCode;renderTracker(directCode,'#inlineTrackerResult');}
+
 })();
 </script></body>
 </html>
