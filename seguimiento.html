@@ -1,0 +1,71 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>PAMPANEXO | Seguimiento</title>
+<style>
+:root{--navy:#0d2b45;--copper:#bb7a42;--muted:#61788a;--line:#d8e2eb}
+*{box-sizing:border-box}body{margin:0;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;color:#203649;background:#f1f5f8}
+header{background:#0d2b45;border-bottom:3px solid var(--copper);padding:27px 20px;text-align:center;color:white}
+.brand{font-weight:900;letter-spacing:.13em;font-size:25px}header small{display:block;letter-spacing:.17em;font-size:10px;color:#d5b49a}
+main{max-width:900px;padding:20px;margin:32px auto 56px}
+a{color:inherit}h1{margin:0;font-size:31px;line-height:1.2;color:var(--navy)}h2{font-size:19px;margin-top:0;color:var(--navy)}
+.card{padding:28px;border:1px solid var(--line);background:white;border-radius:14px;margin:0 0 18px;box-shadow:0 8px 30px #1937530a}
+.muted{color:var(--muted)}.small{font-size:13px}.intro{margin:12px 0 26px}
+.track{display:flex;gap:10px}input{flex:1;min-width:0;border:1px solid #bdcdda;border-radius:8px;padding:13px 14px;font:inherit;letter-spacing:.03em}
+button{border:none;padding:13px 22px;background:var(--navy);color:white;font:inherit;font-weight:750;border-radius:8px;cursor:pointer}
+button:disabled{opacity:.6}.badge{padding:7px 12px;border-radius:30px;background:#ecf3f8;color:#14567d;font-weight:750;font-size:13px}
+.factgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.fact{background:#f6f9fb;border:1px solid #e0e8ef;border-radius:9px;padding:16px}
+.fact small{display:block;color:var(--muted)}.entry{border-left:3px solid var(--copper);padding:12px 16px;margin:14px 0;background:#f7f9fb;border-radius:0 9px 9px 0}
+.notice{font-size:13px;background:#fff8ee;border:1px solid #ecd8bc;color:#80552b;border-radius:9px;padding:13px}
+.error{background:#fff2f2;color:#8a2933;border-color:#f0c6c6}
+[hidden]{display:none!important}footer{text-align:center;color:var(--muted);font-size:12px;padding-bottom:30px}
+@media(max-width:540px){main{padding:0 12px}.card{padding:19px}.track{flex-direction:column}.track button{width:100%}.factgrid{grid-template-columns:1fr}}
+</style></head><body>
+<header><a href="index.html" style="text-decoration:none"><div class="brand">PAMPANEXO</div><small>CONSULTORÍA Y SOLUCIONES TECNOLÓGICAS</small></a></header>
+<main><section class="card"><div style="color:var(--copper);font-size:11px;letter-spacing:.2em;font-weight:850">CONSULTA SEGURA</div><h1>Seguimiento de tu equipo</h1>
+<p class="muted intro">Consulta el estado de tu orden y las intervenciones del Pasaporte Tecnológico que PAMPANEXO haya autorizado para mostrarte.</p>
+<form id="form" class="track"><input id="codigo" aria-label="Código de seguimiento" autocomplete="off" spellcheck="false" placeholder="PX-XXXXXXXXXXXXXXXXXXXXXXXX" required maxlength="27"><button id="buscar">Consultar</button></form>
+<p class="small muted">Tu código es personal. Evita compartirlo públicamente: permite consultar información limitada sobre tu servicio.</p>
+<p class="notice" id="msg" hidden></p></section>
+<section class="card" id="resultado" hidden><div style="display:flex;gap:15px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+<div><div class="muted small">ORDEN</div><h2 id="cod" style="font:750 16px ui-monospace,monospace;overflow-wrap:anywhere"></h2></div><div id="status" class="badge"></div></div>
+<div class="factgrid"><div class="fact"><small>Tipo de equipo</small><strong id="equipo"></strong></div><div class="fact"><small>Última actualización</small><strong id="fecha"></strong></div></div>
+<div style="margin-top:22px"><h2>Información sobre tu servicio</h2><p id="nota"></p></div>
+<div id="pasaporte" hidden><hr style="border:0;border-top:1px solid #dde6ec;margin:25px 0"><h2>Pasaporte Tecnológico</h2><p class="small muted">Historial técnico compartido por PAMPANEXO.</p><div id="entradas"></div></div></section>
+<p style="text-align:center"><a href="index.html">← Volver a PAMPANEXO</a></p>
+</main><footer>La consulta muestra únicamente información marcada para clientes. Los datos internos permanecen protegidos.</footer>
+<script>
+const BASE="https://qzulvugtstkqohxcsbqf.supabase.co";
+const KEY="sb_publishable_il9GdO3XU7dNPuGPFTrS2A_dZX6df-5";
+const labels={received:"Recibido",diagnosing:"En diagnóstico",awaiting_approval:"Esperando aprobación",in_progress:"En proceso",ready:"Listo para entrega",delivered:"Entregado",cancelled:"Cancelado"};
+const form=document.getElementById("form"),inp=document.getElementById("codigo"),out=document.getElementById("resultado"),msg=document.getElementById("msg"),button=document.getElementById("buscar");
+function showMsg(t,error=false){msg.hidden=!t;msg.textContent=t;msg.className=error?"notice error":"notice";}
+function date(d){return d?new Date(d).toLocaleString("es-CL",{year:"numeric",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"}):"Sin registro"}
+async function buscar(code){
+ out.hidden=true;showMsg("");button.disabled=true;button.textContent="Consultando...";
+ try{
+  const r=await fetch(BASE+"/rest/v1/rpc/px_public_tracking",{method:"POST",headers:{"Content-Type":"application/json","apikey":KEY},body:JSON.stringify({p_code:code})});
+  const data=await r.json();if(!r.ok)throw Error("No fue posible consultar en este momento.");
+  if(!data||!data.found){showMsg("No encontramos una orden con ese código. Revísalo e inténtalo nuevamente.",true);return;}
+  document.getElementById("cod").textContent=data.tracking_code;
+  document.getElementById("status").textContent=labels[data.status]||data.status;
+  document.getElementById("equipo").textContent=data.device_type||"Equipo informático";
+  document.getElementById("fecha").textContent=date(data.updated_at);
+  document.getElementById("nota").textContent=data.public_message||"Tu orden está registrada. Aún no se ha publicado una observación para clientes.";
+  const wrap=document.getElementById("entradas");wrap.replaceChildren();
+  const arr=Array.isArray(data.passport)?data.passport:[];
+  document.getElementById("pasaporte").hidden=arr.length===0;
+  for(const e of arr){
+   const box=document.createElement("div");box.className="entry";
+   const a=document.createElement("strong");a.textContent=({diagnostic:"Diagnóstico",maintenance:"Mantención",repair:"Reparación",upgrade:"Actualización",inspection:"Inspección",other:"Intervención"})[e.type]||"Intervención";
+   const d=document.createElement("div");d.className="small muted";d.textContent=date(e.date);
+   const t=document.createElement("p");t.textContent=e.description||"";
+   box.append(a,d,t);
+   if(e.recommendation){const rec=document.createElement("p");rec.textContent="Recomendación: "+e.recommendation;box.append(rec);}
+   wrap.append(box)
+  }
+  out.hidden=false;out.scrollIntoView({behavior:"smooth",block:"start"});
+ }catch(e){showMsg(e.message,true)}finally{button.disabled=false;button.textContent="Consultar"}
+}
+form.addEventListener("submit",e=>{e.preventDefault();const code=inp.value.trim().toUpperCase();if(!/^PX-[0-9A-F]{24}$/.test(code)){showMsg("El código debe comenzar con PX- y contener 24 caracteres alfanuméricos.",true);return}buscar(code)});
+const param=new URLSearchParams(location.search).get("codigo");
+if(param){inp.value=param;form.requestSubmit()}
+</script></body></html>
