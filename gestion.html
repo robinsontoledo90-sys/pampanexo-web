@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PAMPANEXO | Gestión</title><meta name="robots" content="noindex,nofollow">
+<style>
+:root{--navy:#09243d;--deep:#061627;--ink:#1b3247;--copper:#bd7c47;--paper:#f1f5f8;--line:#dde5eb;--muted:#5b7285;--green:#19825c}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit}header{background:linear-gradient(120deg,var(--deep),var(--navy));color:white;border-bottom:3px solid var(--copper)}
+.header-inner{max-width:1260px;margin:auto;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.mark{display:flex;align-items:center;gap:14px;text-decoration:none}.symbol{display:grid;place-items:center;width:57px;height:57px;border:1px solid #b98459;background:#ffffff12;border-radius:13px;color:#f1bc91;font-size:29px;font-weight:900}
+.brandname{font-size:24px;letter-spacing:.13em;font-weight:850}.tag{font-size:10px;color:#a5bccd;letter-spacing:.19em}
+main{max-width:1260px;margin:30px auto;padding:0 24px 54px}.card{background:white;border:1px solid var(--line);border-radius:13px;padding:25px;box-shadow:0 10px 24px #09243d08}
+h1,h2,h3{color:var(--navy);line-height:1.2}h1{font-size:29px;margin:0 0 12px}h2{font-size:20px;margin:0 0 16px}h3{font-size:15px}
+p{margin:9px 0}.muted{color:var(--muted)}.eyebrow{color:var(--copper);font-size:11px;letter-spacing:.18em;font-weight:850}
+.login{max-width:460px;margin:68px auto}.stack{display:grid;gap:12px}label{display:grid;gap:6px;font-size:13px;font-weight:650}input,select,textarea{width:100%;font:inherit;padding:11px 12px;border:1px solid #cbd6df;border-radius:8px;background:white;color:var(--ink);min-width:0}
+input:focus,select:focus,textarea:focus{outline:2px solid #69a5ca;outline-offset:1px}
+button,.button{cursor:pointer;font:inherit;border-radius:8px;padding:10px 15px;border:1px solid #cad5dd;background:white;color:var(--navy);font-weight:750}
+button.primary{background:var(--navy);border-color:var(--navy);color:#fff}button.primary:hover{background:#184e6d}
+button:disabled{opacity:.5;cursor:wait}.small{font-size:12px}.notice{border-radius:9px;background:#fff7eb;border:1px solid #f1d6b8;color:#82522c;padding:13px;font-size:13px}
+.good{background:#edf8f3;border-color:#cce9dd;color:#17664b}.error{background:#fff0f0;border-color:#f3c4c4;color:#9a2b32}
+.toolbar{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+.toolbar h1{margin:0}.user{color:var(--muted);font-size:13px}
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 20px}.tabs button.active{background:var(--navy);color:white}
+.split{display:grid;grid-template-columns:minmax(0,1fr) 365px;gap:18px;align-items:start}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.metric{font-size:29px;font-weight:850;color:var(--navy)}
+.table-wrap{max-width:100%;overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:660px}
+th{text-align:left;color:var(--muted);text-transform:uppercase;font-size:11px;letter-spacing:.09em}
+td,th{border-bottom:1px solid #e8edf0;padding:13px 8px;vertical-align:middle}tbody tr:last-child td{border-bottom:0}
+.pill{display:inline-flex;padding:5px 10px;border-radius:18px;font-size:12px;font-weight:750;background:#e8f0f6;color:#254d68}
+.pill.ready{background:#daf3e8;color:#176d4a}.pill.delivered{background:#e4ebf0}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fields label.wide{grid-column:1/-1}
+.code{font-family:ui-monospace,monospace;font-size:12px;letter-spacing:.02em;overflow-wrap:anywhere}.empty{padding:38px;text-align:center;color:var(--muted)}
+footer{color:var(--muted);font-size:12px;text-align:center;padding:26px}.hidden{display:none!important}
+#alert{margin:0 0 16px}.mini-list{display:grid;gap:8px}.mini-list>div{padding:11px;border:1px solid var(--line);border-radius:8px}
+@media(max-width:900px){.split{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.header-inner{padding:16px}.brandname{font-size:20px}main{padding:0 14px;margin:22px auto}.card{padding:18px}}
+@media(max-width:530px){.fields{grid-template-columns:1fr}.fields label.wide{grid-column:auto}.user{width:100%}.toolbar{align-items:start}.symbol{width:48px;height:48px;font-size:24px}}
+</style></head><body>
+<header><div class="header-inner"><a class="mark" href="index.html"><span class="symbol">PX</span><span><span class="brandname">PAMPANEXO</span><div class="tag">GESTIÓN TECNOLÓGICA · ACCESO INTERNO</div></span></a><a href="index.html" class="small">← Volver al sitio</a></div></header>
+<main>
+<section id="login" class="card login"><div class="eyebrow">ÁREA PRIVADA</div><h1>Acceso del equipo</h1><p class="muted">Ingresa con la cuenta habilitada por PAMPANEXO.</p>
+<div id="loginAlert"></div>
+<form id="loginForm" class="stack">
+<label>Correo electrónico<input name="email" type="email" autocomplete="username" required></label>
+<label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label>
+<button type="submit" class="primary">Ingresar al panel</button>
+</form><p class="small muted">Las cuentas deben ser creadas y autorizadas previamente. No hay acceso público a clientes, órdenes ni pasaportes.</p>
+</section>
+<section id="app" class="hidden">
+<div class="toolbar"><div><div class="eyebrow">PANEL OPERATIVO</div><h1>Gestión de servicios</h1><span class="user" id="userInfo"></span></div><div class="actions"><button id="refresh">Actualizar</button><button id="logout">Cerrar sesión</button></div></div>
+<div id="alert" class="hidden notice"></div>
+<nav class="tabs" id="tabs" aria-label="Secciones"><button data-tab="orders" class="active">Órdenes</button><button data-tab="clients">Clientes</button><button data-tab="devices">Equipos</button><button data-tab="staff">Equipo</button></nav>
+<div id="content"></div>
+</section>
+</main><footer>PAMPANEXO · Panel de operación con permisos y almacenamiento en Supabase · Chile</footer>
+<script>
+"use strict";
+const URL_BASE = "https://qzulvugtstkqohxcsbqf.supabase.co";
+const PUBLIC_KEY = "sb_publishable_il9GdO3XU7dNPuGPFTrS2A_dZX6df-5";
+const ACCESS = "px_session_access", REFRESH = "px_session_refresh", EXPIRES = "px_session_expires";
+let profile=null, user=null, clients=[], devices=[], orders=[], staff=[], tab="orders", selectedOrder=null;
+const byId=id=>document.getElementById(id);
+const val=(x)=>x==null?"":String(x);
+const formatDate=x=>x?new Date(x).toLocaleDateString("es-CL",{day:"2-digit",month:"short",year:"numeric"}):"—";
+const labels={received:"Recibido",diagnosing:"En diagnóstico",awaiting_approval:"Esperando aprobación",in_progress:"En reparación",ready:"Listo para entrega",delivered:"Entregado",cancelled:"Cancelado"};
+function node(tag,attrs={},...children){
+ const e=document.createElement(tag);
+ for(const [k,v] of Object.entries(attrs)){if(k==="class")e.className=v;else if(k==="value")e.value=v;else if(k==="type")e.type=v;else if(k==="onClick")e.addEventListener("click",v);else if(k==="onChange")e.addEventListener("change",v);else if(k==="placeholder")e.placeholder=v;else if(k==="required")e.required=!!v;else if(k==="disabled")e.disabled=!!v;else if(k==="name")e.name=v;else e.setAttribute(k,v);}
+ for(const c of children.flat()){if(c!=null)e.append(c instanceof Node?c:document.createTextNode(String(c)))}return e;
+}
+function field(labelText,name,type="text",options=null){
+ const input=options?node("select",{name},...options.map(x=>node("option",{value:x.value},x.label))):node("input",{type,name});
+ const lab=node("label",{},labelText,input);return lab;
+}
+function notify(message,error=false){const a=byId("alert");a.className="notice"+(error?" error":" good");a.textContent=message;a.scrollIntoView({behavior:"smooth",block:"nearest"});}
+function loginNotify(msg){byId("loginAlert").replaceChildren(node("p",{class:"notice error"},msg))}
+function session(){return sessionStorage.getItem(ACCESS)}
+async function refreshToken(){
+ const rt=sessionStorage.getItem(REFRESH);if(!rt)throw new Error("Sesión vencida. Vuelve a ingresar.");
+ const r=await fetch(URL_BASE+"/auth/v1/token?grant_type=refresh_token",{method:"POST",headers:{"apikey":PUBLIC_KEY,"Content-Type":"application/json"},body:JSON.stringify({refresh_token:rt})});
+ const j=await r.json();if(!r.ok)throw new Error(j.msg||j.error_description||"No se pudo renovar la sesión");
+ saveTokens(j);return j.access_token;
+}
+function saveTokens(j){sessionStorage.setItem(ACCESS,j.access_token);sessionStorage.setItem(REFRESH,j.refresh_token);sessionStorage.setItem(EXPIRES,String(Date.now()+1000*(j.expires_in||3600)));}
+async function api(path,method="GET",payload=null,tokenRequired=true){
+ let token=session();if(tokenRequired&&(!token||Number(sessionStorage.getItem(EXPIRES)||0)<Date.now()+30000))token=await refreshToken();
+ const headers={"apikey":PUBLIC_KEY,"Content-Type":"application/json", "Accept":"application/json"};
+ if(tokenRequired)headers.Authorization="Bearer "+token;
+ if(method!=="GET")headers.Prefer="return=representation";
+ const r=await fetch(URL_BASE+"/rest/v1/"+path,{method,headers,body:payload===null?undefined:JSON.stringify(payload)});
+ const raw=await r.text();let data;try{data=raw?JSON.parse(raw):null}catch{data=raw}
+ if(!r.ok){throw new Error((data&&((data.message||data.details||data.hint)))||"Error de conexión ("+r.status+")")}
+ return data;
+}
+function logout(){for(const k of [ACCESS,REFRESH,EXPIRES])sessionStorage.removeItem(k);user=null;profile=null;byId("app").classList.add("hidden");byId("login").classList.remove("hidden");}
+async function start(){
+ const token=session();if(!token)return;
+ try{
+   const r=await fetch(URL_BASE+"/auth/v1/user",{headers:{"apikey":PUBLIC_KEY,"Authorization":"Bearer "+token}});
+   if(!r.ok)throw Error("Sesión vencida");
+   user=await r.json();
+   const p=await api("px_profiles?select=user_id,full_name,role,active&user_id=eq."+encodeURIComponent(user.id));
+   profile=p[0];
+   if(!profile||!profile.active||!["admin","technician"].includes(profile.role)){logout();loginNotify("Esta cuenta todavía no tiene autorización de acceso. Solicita al administrador su habilitación.");return;}
+   byId("login").classList.add("hidden");byId("app").classList.remove("hidden");
+   byId("userInfo").textContent=profile.full_name+" · "+(profile.role==="admin"?"Administrador":"Técnico");
+   byId("tabs").querySelectorAll("button").forEach(b=>b.hidden=profile.role!=="admin"&&b.dataset.tab==="staff");
+   await load();
+ }catch(err){logout();loginNotify(err.message)}
+}
+async function load(){
+ try{
+  const rs=await Promise.all([
+    api("px_clients?select=id,full_name,organization,email,phone,created_at&order=created_at.desc"),
+    api("px_devices?select=id,client_id,device_type,brand,model,created_at&order=created_at.desc"),
+    api("px_orders?select=id,client_id,device_id,title,status,tracking_code,public_message,assigned_to,created_at,updated_at&order=created_at.desc"),
+    api("px_profiles?select=user_id,full_name,role,active&order=created_at.desc")
+  ]);
+  [clients,devices,orders,staff]=rs;render();
+ }catch(e){notify(e.message,true)}
+}
+const byClient=id=>clients.find(x=>x.id===id)?.full_name||"Cliente";
+const byDevice=id=>{const d=devices.find(x=>x.id===id);return d?[d.device_type,d.brand,d.model].filter(Boolean).join(" "):"Sin equipo vinculado"};
+function selectField(labelText,name,opts){const s=node("select",{name},...opts.map(o=>node("option",{value:o.value},o.label)));return node("label",{},labelText,s)}
+function formButton(label){return node("button",{type:"submit",class:"primary"},label)}
+function makeForm(title,fields,onSubmit){
+ const card=node("section",{class:"card"},node("h2",{},title));
+ const form=node("form",{class:"stack"}), f=node("div",{class:"fields"},...fields);form.append(f,formButton("Guardar"));
+ form.addEventListener("submit",async e=>{e.preventDefault();const btn=form.querySelector('button[type="submit"]');btn.disabled=true;try{await onSubmit(new FormData(form));form.reset();await load();notify("Guardado correctamente")}catch(err){notify(err.message,true)}finally{btn.disabled=false}});
+ card.append(form);return card;
+}
+function orderRows(){
+ const table=node("table",{},node("thead",{},node("tr",{},...["Código","Cliente","Servicio","Estado","Actualizado",""].map(x=>node("th",{},x)))));
+ const body=node("tbody"); for(const o of orders){body.append(node("tr",{},
+   node("td",{class:"code"},o.tracking_code),node("td",{},byClient(o.client_id)),node("td",{},o.title),
+   node("td",{},node("span",{class:"pill "+o.status},labels[o.status]||o.status)),
+   node("td",{},formatDate(o.updated_at)),node("td",{},node("button",{onClick:()=>{selectedOrder=o.id;render()}},"Gestionar"))))}
+ table.append(body);return node("div",{class:"table-wrap"},table)
+}
+function renderOrders(){
+ const area=node("div",{class:"split"});
+ const left=node("section",{class:"card"},node("h2",{},"Órdenes de servicio"),orders.length?orderRows():node("div",{class:"empty"},"Todavía no hay órdenes registradas."));
+ const right=node("div",{class:"stack"});
+ if(profile.role==="admin"){
+   const fields=[
+     selectField("Cliente *","client_id",[...clients.map(x=>({value:x.id,label:x.full_name}))]),
+     selectField("Equipo (opcional)","device_id",[{value:"",label:"Sin equipo"},...devices.map(x=>({value:x.id,label:byDevice(x.id)+" · "+byClient(x.client_id)}))]),
+     field("Descripción del servicio *","title"),
+     selectField("Responsable técnico","assigned_to",[{value:"",label:"Por asignar"},...staff.filter(x=>x.role==="technician"&&x.active).map(x=>({value:x.user_id,label:x.full_name}))]),
+   ];
+   const form=makeForm("Nueva orden",fields,async d=>{
+     const c=d.get("client_id"), device=d.get("device_id");
+     if(!c)throw Error("Primero registra un cliente");
+     if(device&&devices.find(x=>x.id===device)?.client_id!==c)throw Error("El equipo seleccionado pertenece a otro cliente");
+     const title=val(d.get("title")).trim();if(title.length<3)throw Error("Escribe una descripción más detallada");
+     await api("px_orders","POST",{client_id:c,device_id:device||null,title,assigned_to:d.get("assigned_to")||null,created_by:user.id});
+   });
+   right.append(form)
+ }
+ if(selectedOrder&&orders.some(o=>o.id===selectedOrder)){
+  const o=orders.find(x=>x.id===selectedOrder), detail=node("section",{class:"card"},node("h2",{},"Actualizar orden"),node("p",{class:"code"},o.tracking_code),node("p",{class:"small muted"},byDevice(o.device_id)));
+  const f=node("form",{class:"stack"});
+  const status=selectField("Nuevo estado","status",Object.entries(labels).map(([value,label])=>({value,label})));status.querySelector("select").value=o.status;
+  const pub=node("label",{},"Mensaje visible para el cliente",node("textarea",{name:"public_message",rows:"3",maxlength:"500"}));pub.querySelector("textarea").value=o.public_message||"";
+  const intern=node("label",{},"Nota interna (no visible para el cliente)",node("textarea",{name:"internal_note",rows:"3",maxlength:"2000"}));
+  f.append(status,pub,intern,formButton("Guardar avance"));
+  f.addEventListener("submit",async e=>{e.preventDefault();try{
+    await api("rpc/px_change_order_status","POST",{p_order_id:o.id,p_status:f.elements.status.value,p_public_message:f.elements.public_message.value,p_internal_note:f.elements.internal_note.value});
+    await load();notify("Avance actualizado. El cliente verá el nuevo estado con su código.")
+   }catch(e){notify(e.message,true)}});
+  detail.append(f,node("p",{class:"small muted"},"Enlace del cliente: ",node("a",{href:"seguimiento.html?codigo="+encodeURIComponent(o.tracking_code),target:"_blank",rel:"noopener"},"Abrir consulta")));
+  if(o.device_id){
+    const pf=node("form",{class:"stack"},node("h3",{},"Nueva entrada del pasaporte"));
+    pf.append(selectField("Tipo de intervención","kind",["diagnostic","maintenance","repair","upgrade","inspection","other"].map(x=>({value:x,label:({diagnostic:"Diagnóstico",maintenance:"Mantención",repair:"Reparación",upgrade:"Actualización",inspection:"Revisión",other:"Otro"})[x]}))),
+     node("label",{},"Trabajo realizado",node("textarea",{name:"description",required:"required"})),
+     node("label",{},"Recomendación",node("textarea",{name:"recommendation"})),
+     node("label",{},node("span",{},"Visible para el cliente "),node("input",{type:"checkbox",name:"visible",style:"width:auto"})),
+     formButton("Añadir al pasaporte"));
+    pf.addEventListener("submit",async e=>{e.preventDefault();const d=new FormData(pf);try{await api("rpc/px_add_passport_entry","POST",{
+     p_device_id:o.device_id,p_order_id:o.id,p_type:d.get("kind"),p_description:d.get("description"),p_recommendation:d.get("recommendation"),p_customer_visible:d.has("visible")
+     });pf.reset();notify("Entrada añadida al Pasaporte Tecnológico")}catch(err){notify(err.message,true)}});
+    detail.append(pf);
+  }
+  right.append(detail)
+ }else if(profile.role!=="admin"){right.append(node("section",{class:"card"},node("h2",{},"Órdenes asignadas"),node("p",{class:"muted"},"Selecciona una orden para actualizar su estado y su pasaporte.")))}
+ area.append(left,right);return area;
+}
+function renderClients(){
+ const area=node("div",{class:"split"});
+ const listing=node("section",{class:"card"},node("h2",{},"Clientes registrados"));
+ const items=node("div",{class:"mini-list"},...clients.map(c=>node("div",{},node("strong",{},c.full_name),node("div",{class:"small muted"},[c.organization,c.email,c.phone].filter(Boolean).join(" · ")))));
+ listing.append(clients.length?items:node("p",{class:"muted"},"Todavía no hay clientes"));
+ area.append(listing);
+ if(profile.role==="admin"){area.append(makeForm("Registrar cliente",[
+ field("Nombre o razón social *","full_name"),field("Empresa (opcional)","organization"),field("Correo","email","email"),field("Teléfono","phone","tel")
+ ],async d=>{const obj={full_name:val(d.get("full_name")).trim(),organization:d.get("organization")||null,email:d.get("email")||null,phone:d.get("phone")||null,created_by:user.id};await api("px_clients","POST",obj)}))}
+ return area;
+}
+function renderDevices(){
+ const area=node("div",{class:"split"}),listing=node("section",{class:"card"},node("h2",{},"Equipos registrados"));
+ const items=node("div",{class:"mini-list"},...devices.map(d=>node("div",{},node("strong",{},byDevice(d.id)),node("div",{class:"small muted"},"Propietario: "+byClient(d.client_id)))));
+ listing.append(devices.length?items:node("p",{class:"muted"},"Todavía no hay equipos"));area.append(listing);
+ if(profile.role==="admin"){
+  area.append(makeForm("Registrar equipo",[
+   selectField("Propietario *","client_id",clients.map(c=>({value:c.id,label:c.full_name}))),
+   field("Tipo de equipo","device_type"),field("Marca","brand"),field("Modelo","model")
+  ],async d=>{const obj={client_id:d.get("client_id"),device_type:d.get("device_type")||"Computador",brand:d.get("brand")||null,model:d.get("model")||null,created_by:user.id};await api("px_devices","POST",obj)}))
+ }return area;
+}
+function renderStaff(){
+ const card=node("section",{class:"card"},node("h2",{},"Usuarios habilitados"),node("p",{class:"muted"},"Los perfiles nuevos se crean en estado pendiente hasta que el administrador los autorice."));
+ const items=node("div",{class:"mini-list"},...staff.map(x=>node("div",{},node("strong",{},x.full_name),node("div",{class:"small muted"},"Rol: "+x.role+" · "+(x.active?"Habilitado":"Pendiente")))));
+ card.append(items);return card;
+}
+function render(){
+ byId("tabs").querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+ const content=byId("content");content.replaceChildren(tab==="orders"?renderOrders():tab==="clients"?renderClients():tab==="devices"?renderDevices():renderStaff());
+}
+byId("loginForm").addEventListener("submit",async e=>{
+ e.preventDefault();const b=e.target.querySelector("button");b.disabled=true;byId("loginAlert").replaceChildren();
+ try{const d=new FormData(e.target);
+  const r=await fetch(URL_BASE+"/auth/v1/token?grant_type=password",{method:"POST",headers:{"apikey":PUBLIC_KEY,"Content-Type":"application/json"},body:JSON.stringify({email:d.get("email"),password:d.get("password")})});
+  const j=await r.json();if(!r.ok)throw new Error("Correo o contraseña incorrectos, o cuenta no confirmada");
+  saveTokens(j);await start();
+ }catch(err){loginNotify(err.message)}finally{b.disabled=false}
+});
+byId("logout").addEventListener("click",logout);
+byId("refresh").addEventListener("click",load);
+byId("tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-tab]");if(b){tab=b.dataset.tab;selectedOrder=null;render()}});
+start();
+</script></body></html>
