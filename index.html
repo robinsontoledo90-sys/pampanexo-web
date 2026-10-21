@@ -374,6 +374,27 @@ html{scroll-padding-top:115px}
 .px-service-access-links a:last-child{border-color:#bad7cf;background:#edf8f4;color:#225d54}
 .px-service-access-links a:last-child:hover{background:#daf0e8}
 @media(max-width:1290px){.px-service-access-inner{flex-wrap:wrap}.px-service-access-links{gap:8px}}
+
+/* Reciclaje y segunda vida: mensaje principal / diseño adaptable */
+.px-eco-hero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 14px;align-items:center;margin:0 0 22px;padding:16px;border-radius:11px;border:1px solid #89d3b780;border-left:4px solid #a2e7bc;background:linear-gradient(110deg,#174b4ba8,#103e51ae);max-width:650px}
+.px-eco-icon{grid-row:1/3;display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:#92e5bf20;color:#c1f8d7;font-size:24px}
+.px-eco-hero>div{display:grid;gap:4px;min-width:0}
+.px-eco-hero strong{color:#f4fff9;font-size:17px;font-weight:850;line-height:1.25}
+.px-eco-hero>div span{color:#baddd2;font-size:12px;line-height:1.5}
+.px-eco-hero>a{grid-column:2;justify-self:start;font-size:12px;font-weight:850;color:#baf7d7;text-decoration:underline;text-underline-offset:4px}
+.px-circular-section{background:linear-gradient(147deg,#082b34,#114044 52%,#154957)!important}
+.px-circular-intro h2{font-size:clamp(37px,4.6vw,64px);max-width:950px;line-height:1.08}
+.px-circular-lead{font-size:clamp(14px,1.1vw,17px)!important;color:#dceee6!important;line-height:1.8!important;max-width:760px!important}
+.px-eco-principle{display:flex;align-items:center;gap:12px;max-width:750px;margin-top:24px;padding:17px 19px;background:#b2f3db12;border:1px solid #ace5bc77;border-left:4px solid #8ce3b3;border-radius:9px}
+.px-eco-principle>span{font-size:34px;color:#b3ead0}
+.px-eco-principle strong{display:block;color:#f5fff9;font-size:17px;margin-bottom:4px}
+.px-eco-principle small{display:block;color:#d0e8df;line-height:1.5;font-size:12px}
+.px-circular-card{border-color:#93dab760;background:linear-gradient(150deg,#164c4c,#103544)}
+.px-circular-card-icon{color:#b5f0cc}
+.px-circular-disclaimer{max-width:950px;color:#b9d5cd;line-height:1.6;font-size:11px;margin:15px 2px 0}
+.px-circular-link{background:#e3ac74}
+@media(max-width:900px){.px-circular-intro h2{font-size:clamp(35px,6vw,55px)}}
+@media(max-width:620px){.px-eco-hero{padding:13px}.px-eco-hero strong{font-size:15px}.px-eco-hero>div span,.px-eco-hero>a{font-size:11px}.px-eco-icon{width:36px;height:36px;font-size:20px}.px-eco-principle{align-items:flex-start;padding:13px}.px-eco-principle strong{font-size:14px}.px-eco-principle small{font-size:11px}}
 </style>
   
   <link rel="manifest" href="./manifest.webmanifest">
@@ -399,6 +420,7 @@ html{scroll-padding-top:115px}
         <button id="navToggle" class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span>☰</span></button>
         <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
           <a href="#servicios">Servicios</a>
+          <a href="#segunda-vida">Reciclaje</a>
           <a href="#proyectos">Nuestro trabajo</a>
           <a href="#metodo">Cómo trabajamos</a>
           <a href="#pasaporte">Pasaporte</a>
@@ -426,9 +448,10 @@ html{scroll-padding-top:115px}
           <div class="hero-copy"><div class="hero-brand-feature"><div class="hero-logo-plaque"><img id="heroLogo" alt="Logo corporativo de PAMPANEXO"></div><div class="hero-brand-wordmark"><small>TECNOLOGÍA CON IDENTIDAD NORTINA</small><strong>PAMPANEXO</strong><span>CONSULTORÍA Y SOLUCIONES INFORMÁTICAS</span></div></div><div class="v4-tag"><span class="v4-tag-dot"></span> PAMPANEXO DIGITAL <b>DESDE TARAPACÁ</b></div>
             <div class="eyebrow"><span class="eyebrow-line"></span> ASESORÍA · SOPORTE · SOLUCIONES INFORMÁTICAS</div>
             <h1>Tu tecnología, <em>en buenas manos.</em></h1>
-            <p>Soporte, sistemas y soluciones digitales para personas y empresas. Tecnología que funciona, se entiende y evoluciona contigo.</p>
+            <p>Soporte, sistemas y soluciones informáticas para personas y empresas. También buscamos prolongar la vida útil de tus equipos mediante reparación, recuperación y reutilización responsable.</p>
+            <div class="px-eco-hero"><span class="px-eco-icon" aria-hidden="true">♻</span><div><strong>Reparar. Recuperar. Reutilizar.</strong><span>Menos descarte tecnológico, más oportunidades para tus equipos.</span></div><a href="#segunda-vida">Conoce nuestra propuesta circular ↗</a></div>
             <div class="hero-actions"><a href="#contacto" class="btn btn-copper">Conversemos <span aria-hidden="true">↗</span></a><a href="#proyectos" class="btn btn-glass">Conoce nuestro trabajo <span aria-hidden="true">→</span></a></div>
-            <div class="hero-foot"><span class="plus-icon">✳</span> Claridad técnica <span class="sep"></span> Cercanía <span class="sep"></span> Uso responsable</div><div class="hero-tech-line" aria-hidden="true"><span class="tech-led"></span> SISTEMAS <b>·</b> SOFTWARE <b>·</b> SOPORTE <span class="hero-tech-index">PX / 2026</span></div>
+            <div class="hero-foot"><span class="plus-icon">✳</span> Claridad técnica <span class="sep"></span> Cercanía <span class="sep"></span> Reutilización responsable</div><div class="hero-tech-line" aria-hidden="true"><span class="tech-led"></span> SISTEMAS <b>·</b> SOFTWARE <b>·</b> SOPORTE <span class="hero-tech-index">PX / 2026</span></div>
           </div>
           <div class="hero-visual v4-visual" aria-label="Diseño conceptual de una plataforma informática PAMPANEXO">
             <div class="v4-hud-corner v4-hud-top">PX — TARAPACÁ / CL</div>
@@ -462,7 +485,7 @@ html{scroll-padding-top:115px}
           </div>
         </div>
       </section>
-      <div class="value-strip"><div class="container value-inner"><span>DIAGNÓSTICO</span><span class="diamond">◆</span><span>SOLUCIONES INFORMÁTICAS</span><span class="diamond">◆</span><span>CAPACITACIÓN</span><span class="diamond">◆</span><span>CONTINUIDAD</span></div></div>
+      <div class="value-strip"><div class="container value-inner"><span>DIAGNÓSTICO</span><span class="diamond">◆</span><span>RECUPERACIÓN</span><span class="diamond">◆</span><span>REUTILIZACIÓN</span><span class="diamond">◆</span><span>CONTINUIDAD</span></div></div>
       <section class="section section-services" id="servicios">
         <div class="container">
           <div class="section-heading two-col"><div><span class="kicker">01 / QUÉ HACEMOS</span><h2>La tecnología adecuada, <span>para cada necesidad.</span></h2></div><p>Trabajamos desde el diagnóstico hasta el acompañamiento. Estas son nuestras líneas de servicio propuestas, sujetas a alcance y disponibilidad.</p></div>
@@ -480,21 +503,22 @@ html{scroll-padding-top:115px}
   <div class="container">
     <div class="px-circular-top">
       <div class="px-circular-intro">
-        <span class="px-circular-kicker"><span aria-hidden="true">↻</span> TECNOLOGÍA CIRCULAR · PAMPANEXO</span>
-        <h2 id="pxCircularTitle">La tecnología merece <span>una segunda vida.</span></h2>
-        <p>Antes de descartar un equipo, evaluamos si es posible repararlo, reacondicionarlo o reutilizar componentes. Buscamos aprovechar mejor los recursos y reducir el descarte tecnológico innecesario.</p>
+        <span class="px-circular-kicker"><span aria-hidden="true">♻</span> SEGUNDA VIDA TECNOLÓGICA · PAMPANEXO</span>
+        <h2 id="pxCircularTitle">Reciclaje y <span>reutilización tecnológica.</span></h2>
+        <p class="px-circular-lead">No toda falla significa reemplazo. En PAMPANEXO evaluamos equipos y componentes para determinar si pueden repararse, reacondicionarse o reutilizarse, reduciendo el descarte innecesario.</p><div class="px-eco-principle"><span aria-hidden="true">↻</span><div><strong>Recuperar antes de desechar.</strong><small>Reparar cuando sea posible · Reutilizar con criterio · Disponer responsablemente</small></div></div>
       </div>
-      <div class="px-circular-signet" aria-hidden="true"><span>↻</span><small>REUTILIZAR<br>RECUPERAR<br>PROLONGAR</small></div>
+      <div class="px-circular-signet" aria-hidden="true"><span>↻</span><small>REPARAR<br>RECUPERAR<br>REUTILIZAR</small></div>
     </div>
     <div class="px-circular-grid">
-      <article class="px-circular-card"><span class="px-circular-card-icon" aria-hidden="true">▣</span><h3>Computadores y notebooks</h3><p>Revisamos equipos que aún pueden funcionar mediante mantención, reparación o actualización de componentes.</p><small>Evaluación caso a caso</small></article>
-      <article class="px-circular-card"><span class="px-circular-card-icon" aria-hidden="true">⌘</span><h3>Componentes recuperables</h3><p>Identificamos piezas y accesorios que pueden tener una segunda utilidad, siempre que sea técnicamente seguro.</p><small>Reutilización responsable</small></article>
-      <article class="px-circular-card"><span class="px-circular-card-icon" aria-hidden="true">♻</span><h3>Residuos electrónicos</h3><p>Cuando un equipo ya no es recuperable, promovemos su entrega a gestores autorizados, en lugar de desecharlo con la basura común.</p><small>Orientación para una disposición adecuada</small></article>
+      <article class="px-circular-card"><span class="px-circular-card-icon" aria-hidden="true">▣</span><h3>Computadores y notebooks</h3><p>Evaluamos equipos con fallas o en desuso para identificar opciones de mantención, reparación o actualización antes de reemplazarlos.</p><small>Evaluación técnica caso a caso</small></article>
+      <article class="px-circular-card"><span class="px-circular-card-icon" aria-hidden="true">⌘</span><h3>Componentes y periféricos</h3><p>Buscamos dar una segunda utilidad a memorias, unidades, accesorios y piezas recuperables, siempre que resulte técnicamente seguro y viable.</p><small>Reutilización y reacondicionamiento</small></article>
+      <article class="px-circular-card"><span class="px-circular-card-icon" aria-hidden="true">♻</span><h3>Reciclaje responsable</h3><p>Cuando un equipo ya no se puede aprovechar, orientamos sobre alternativas de entrega a gestores autorizados de residuos electrónicos.</p><small>Orientación para disposición responsable</small></article>
     </div>
     <div class="px-circular-foot">
-      <div><strong>Reparar antes de reemplazar.</strong><p>Cuéntanos qué tecnología tienes y evaluamos las alternativas disponibles. La recepción y recuperación dependen del estado del equipo.</p></div>
-      <a href="#contacto" class="px-circular-link">Consultar por un equipo <span aria-hidden="true">↗</span></a>
+      <div><strong>¿Tienes un equipo en desuso o con fallas?</strong><p>Cuéntanos qué equipo tienes. Evaluaremos si puede repararse, reutilizarse o reacondicionarse. La recepción y recuperación dependen de su estado y de nuestra capacidad técnica.</p></div>
+      <a href="#contacto" class="px-circular-link">Solicitar evaluación <span aria-hidden="true">↗</span></a>
     </div>
+    <p class="px-circular-disclaimer">PAMPANEXO promueve la reutilización tecnológica y la disposición responsable. No se presenta como gestor autorizado de residuos ni garantiza recuperar todos los equipos.</p>
   </div>
 </section>
 
