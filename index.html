@@ -247,8 +247,18 @@
 @media print{body *{visibility:hidden!important}.qr-receipt,.qr-receipt *{visibility:visible!important}.qr-receipt{display:grid!important;position:fixed!important;left:20px!important;top:20px!important;width:calc(100% - 40px)!important;border:2px solid #173a52!important;background:white!important;box-shadow:none!important;grid-template-columns:1fr auto!important}.qr-actions{display:none!important}}
 </style>
   
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PAMPANEXO">
+  <link rel="apple-touch-icon" href="./icon-192.png">
 </head>
 <body>
+  <div id="pxOfflineBar" style="background:linear-gradient(90deg,#0b2941,#15435f);color:#fff;padding:12px 18px;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;font:600 12px/1.5 system-ui,sans-serif;text-align:center;border-bottom:2px solid #c57b49">
+    <span>◉ PAMPANEXO se puede instalar y abrir sin internet (portada y demostración).</span>
+    <button id="pxInstallBtn" type="button" hidden style="background:#c57b49;color:#081f33;border:none;border-radius:7px;padding:9px 14px;font:800 12px system-ui;cursor:pointer">Instalar PAMPANEXO</button>
+    <span id="pxInstallHelp" style="color:#bed6e7;font-weight:500">En Chrome Android: menú ⋮ → Añadir a pantalla de inicio → Instalar.</span>
+  </div>
   <div class="demo-ribbon"><span class="small-dot"></span> VISTA PREVIA · No ingreses información real · Panel, usuarios y seguimiento son simulaciones</div>
   <div id="publicView">
     <header class="site-header" id="inicio">
@@ -383,7 +393,7 @@
   <div class="modal-backdrop" id="trackerModal" hidden><div class="modal tracker-modal" role="dialog" aria-modal="true" aria-labelledby="trackerTitle"><button class="close-modal" type="button" data-close-modal aria-label="Cerrar">×</button><span class="modal-kicker">CONSULTA DE AVANCE</span><h2 id="trackerTitle">Seguimiento de tu servicio</h2><p>Ingresa tu código de demostración para consultar únicamente el avance público del servicio. No se mostrarán notas internas ni datos del cliente.</p><form id="trackerForm" class="tracker-input"><label for="trackingCode">CÓDIGO DE SEGUIMIENTO</label><div><input type="text" id="trackingCode" placeholder="PX-DEMO-001" autocapitalize="characters" maxlength="40" required><button type="submit" class="btn btn-navy">Consultar →</button></div></form><button id="useExampleCode" class="example-link" type="button">Usar código de ejemplo: PX-DEMO-001</button><div id="trackerResult" aria-live="polite"></div></div></div>
   <div class="modal-backdrop" id="editorModal" hidden><div class="modal editor-modal" role="dialog" aria-modal="true" aria-labelledby="editorTitle"><button class="close-modal" type="button" data-close-modal aria-label="Cerrar">×</button><span class="modal-kicker" id="editorKicker">GESTIÓN INTERNA</span><h2 id="editorTitle">Nueva orden</h2><div id="editorContent"></div></div></div>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="./qr.min.js"></script>
 <script>/*
  * PAMPANEXO · PROTOTIPO LOCAL DE DEMOSTRACIÓN
  * NO contiene autenticación, almacenamiento compartido ni envío real de formularios.
@@ -526,5 +536,45 @@
   if(directCode&&directCode.length<=50){$('#inlineTrackingCode').value=directCode;renderTracker(directCode,'#inlineTrackerResult');}
 
 })();
-</script></body>
+</script><script>
+/* Instalar como PWA. Sólo se almacenan las páginas de demostración públicas. */
+(function(){
+  "use strict";
+  let deferredInstall=null;
+  const btn=document.getElementById("pxInstallBtn");
+  const help=document.getElementById("pxInstallHelp");
+  if("serviceWorker" in navigator){
+    window.addEventListener("load",function(){
+      navigator.serviceWorker.register("./sw.js",{scope:"./"}).catch(function(err){
+        console.warn("No se pudo activar el acceso sin conexión",err);
+      });
+    });
+  }
+  window.addEventListener("beforeinstallprompt",function(e){
+    e.preventDefault();
+    deferredInstall=e;
+    if(btn)btn.hidden=false;
+    if(help)help.textContent="Pulsa Instalar para guardar PAMPANEXO en este dispositivo.";
+  });
+  if(btn)btn.addEventListener("click",async function(){
+    if(!deferredInstall){
+      if(help)help.textContent="Abre el menú del navegador y elige Instalar aplicación o Añadir a pantalla de inicio.";
+      return;
+    }
+    const prompt=deferredInstall;
+    deferredInstall=null;
+    btn.hidden=true;
+    await prompt.prompt();
+    const result=await prompt.userChoice;
+    if(help)help.textContent=result.outcome==="accepted"
+      ?"PAMPANEXO está preparada para abrirse desde tu pantalla de inicio."
+      :"Puedes instalarla desde el menú de tu navegador.";
+  });
+  window.addEventListener("appinstalled",function(){
+    if(btn)btn.hidden=true;
+    if(help)help.textContent="Aplicación instalada. La portada funcionará sin internet después de su primera carga.";
+  });
+})();
+</script>
+</body>
 </html>
