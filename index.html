@@ -342,6 +342,34 @@ html{scroll-padding-top:115px}
 @media(max-width:375px){.hero-brand-wordmark strong{font-size:23px;letter-spacing:-.04em}.hero-brand-feature{padding:13px 8px}}
 @media (prefers-reduced-motion:reduce){.px-service-access-links a{transition:none}}
 
+
+/* PAMPANEXO: compromiso con la segunda vida tecnológica */
+.px-circular-section{background:linear-gradient(160deg,#0c293f 0%,#102f43 55%,#154552 100%);padding:clamp(68px,7vw,108px) 0!important;color:#e5eef3;position:relative;overflow:hidden}
+.px-circular-section::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 85% 0%,rgba(75,177,157,.13),transparent 36%),repeating-linear-gradient(90deg,transparent 0,transparent 60px,rgba(129,203,205,.03) 61px,transparent 62px)}
+.px-circular-section .container{position:relative;z-index:1}
+.px-circular-top{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(180px,.35fr);gap:34px;align-items:center;margin-bottom:32px}
+.px-circular-kicker{display:inline-flex;align-items:center;gap:9px;color:#a1dccd;font-size:11px;font-weight:850;letter-spacing:.17em;margin-bottom:19px}
+.px-circular-kicker span{font-size:20px;line-height:1}
+.px-circular-intro h2{color:#fff;font-size:clamp(35px,4.3vw,60px);max-width:850px;line-height:1.1;letter-spacing:-.045em;margin:0 0 20px;word-break:normal;overflow-wrap:normal}
+.px-circular-intro h2 span{color:#e7a975}
+.px-circular-intro>p{color:#bdced8;font-size:15px;line-height:1.85;max-width:690px;margin:0}
+.px-circular-signet{justify-self:center;width:175px;height:175px;border-radius:50%;border:1px solid #6fb7aa77;background:radial-gradient(circle,#124b52,#0e3042 75%);display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:0 0 0 14px #5da99d0b;color:#a6e4cf}
+.px-circular-signet span{font-size:54px;line-height:1}
+.px-circular-signet small{font-size:9px;letter-spacing:.18em;text-align:center;line-height:1.6;font-weight:850}
+.px-circular-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.px-circular-card{border:1px solid #608b9a66;background:linear-gradient(155deg,#174159e0,#103044f2);padding:29px 25px;border-radius:13px;min-width:0}
+.px-circular-card-icon{display:grid;place-items:center;width:50px;height:50px;border-radius:13px;background:#89d5c41a;border:1px solid #90d9c344;color:#a0e5d3;font-size:25px;margin-bottom:22px}
+.px-circular-card h3{color:#fff;font-size:20px;line-height:1.25;margin:0 0 11px}
+.px-circular-card p{color:#c1d2dc;font-size:13px;line-height:1.8;margin:0 0 25px}
+.px-circular-card>small{font-size:10px;font-weight:800;letter-spacing:.085em;color:#a9d9cb}
+.px-circular-foot{display:flex;align-items:center;justify-content:space-between;gap:25px;margin-top:24px;padding:25px 29px;border:1px solid #4d7d8a77;border-radius:12px;background:#ffffff09}
+.px-circular-foot strong{font-size:18px;color:#fff}
+.px-circular-foot p{font-size:13px;color:#bdd0db;margin:7px 0 0;line-height:1.7;max-width:620px}
+.px-circular-link{display:inline-flex;align-items:center;justify-content:center;gap:16px;flex:0 0 auto;background:#d39a6a;color:#0b2637;padding:14px 19px;border-radius:7px;text-decoration:none;font-size:12px;font-weight:850;white-space:nowrap}
+.px-circular-link:hover{background:#edb688}
+@media(max-width:940px){.px-circular-top{grid-template-columns:minmax(0,1fr)}.px-circular-signet{display:none}.px-circular-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.px-circular-foot{align-items:flex-start;flex-direction:column}}
+@media(max-width:620px){.px-circular-section{padding:62px 0!important}.px-circular-grid{grid-template-columns:minmax(0,1fr)}.px-circular-card{padding:23px}.px-circular-top{margin-bottom:23px}.px-circular-intro>p{font-size:13px}.px-circular-foot{padding:21px}.px-circular-link{width:100%;white-space:normal}}
+
 </style>
   
   <link rel="manifest" href="./manifest.webmanifest">
@@ -442,6 +470,29 @@ html{scroll-padding-top:115px}
           <p class="section-note"><span>✦</span> También promovemos la reparación, actualización y reutilización responsable de equipos antes de considerar su reemplazo.</p>
         </div>
       </section>
+      
+<section class="section px-circular-section" id="segunda-vida" aria-labelledby="pxCircularTitle">
+  <div class="container">
+    <div class="px-circular-top">
+      <div class="px-circular-intro">
+        <span class="px-circular-kicker"><span aria-hidden="true">↻</span> TECNOLOGÍA CIRCULAR · PAMPANEXO</span>
+        <h2 id="pxCircularTitle">La tecnología merece <span>una segunda vida.</span></h2>
+        <p>Antes de descartar un equipo, evaluamos si es posible repararlo, reacondicionarlo o reutilizar componentes. Buscamos aprovechar mejor los recursos y reducir el descarte tecnológico innecesario.</p>
+      </div>
+      <div class="px-circular-signet" aria-hidden="true"><span>↻</span><small>REUTILIZAR<br>RECUPERAR<br>PROLONGAR</small></div>
+    </div>
+    <div class="px-circular-grid">
+      <article class="px-circular-card"><span class="px-circular-card-icon" aria-hidden="true">▣</span><h3>Computadores y notebooks</h3><p>Revisamos equipos que aún pueden funcionar mediante mantención, reparación o actualización de componentes.</p><small>Evaluación caso a caso</small></article>
+      <article class="px-circular-card"><span class="px-circular-card-icon" aria-hidden="true">⌘</span><h3>Componentes recuperables</h3><p>Identificamos piezas y accesorios que pueden tener una segunda utilidad, siempre que sea técnicamente seguro.</p><small>Reutilización responsable</small></article>
+      <article class="px-circular-card"><span class="px-circular-card-icon" aria-hidden="true">♻</span><h3>Residuos electrónicos</h3><p>Cuando un equipo ya no es recuperable, promovemos su entrega a gestores autorizados, en lugar de desecharlo con la basura común.</p><small>Orientación para una disposición adecuada</small></article>
+    </div>
+    <div class="px-circular-foot">
+      <div><strong>Reparar antes de reemplazar.</strong><p>Cuéntanos qué tecnología tienes y evaluamos las alternativas disponibles. La recepción y recuperación dependen del estado del equipo.</p></div>
+      <a href="#contacto" class="px-circular-link">Consultar por un equipo <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
       <section class="section projects-section" id="proyectos">
         <div class="container">
           <div class="section-heading project-heading"><div><span class="kicker">02 / NUESTRO TRABAJO</span><h2>Ideas que se convierten <span>en herramientas.</span></h2></div><p>Una muestra de líneas de desarrollo y prototipos del proyecto. No se presentan como trabajos concluidos para clientes.</p></div>
