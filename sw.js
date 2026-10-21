@@ -1,6 +1,6 @@
 /* PAMPANEXO · caché pública de lectura sin conexión.
    No almacenar APIs de Supabase, datos autenticados ni páginas internas. */
-const CACHE_NAME = "pampanexo-public-v5-reciclaje-reutilizacion-20261021";
+const CACHE_NAME = "pampanexo-public-v6-chat-20261021";
 const CACHE_PREFIX = "pampanexo-public-";
 const SCOPE = new URL(self.registration.scope);
 const ASSETS = [
@@ -12,6 +12,7 @@ const ASSETS = [
   "./offline.html",
   "./sin-conexion.html",
   "./actualizacion.js",
+  "./asistente-embebido.js",
   "./icon-192.png",
   "./icon-512.png"
 ];
