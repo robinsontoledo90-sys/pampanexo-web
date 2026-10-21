@@ -108,5 +108,8 @@ for(const [label,prompt] of promptButtons){
 const b=document.createElement("button");b.type="button";b.textContent=label;
 b.addEventListener("click",()=>{input.value=prompt;form.requestSubmit()});shortcuts.append(b);
 }
+for(const launcher of document.querySelectorAll("[data-px-open-assistant]")){
+launcher.addEventListener("click",event=>{event.preventDefault();openPanel()});
+}
 button.setAttribute("aria-label","Abrir asistente técnico");
 })();
