@@ -1,6 +1,6 @@
 /* PAMPANEXO · caché pública de lectura sin conexión.
    No almacenar APIs de Supabase, datos autenticados ni páginas internas. */
-const CACHE_NAME = "pampanexo-public-v3-circular-offline-work-20261021";
+const CACHE_NAME = "pampanexo-public-v4-auto-refresh-20261021";
 const CACHE_PREFIX = "pampanexo-public-";
 const SCOPE = new URL(self.registration.scope);
 const ASSETS = [
@@ -11,6 +11,7 @@ const ASSETS = [
   "./manifest.webmanifest",
   "./offline.html",
   "./sin-conexion.html",
+  "./actualizacion.js",
   "./icon-192.png",
   "./icon-512.png"
 ];
@@ -63,6 +64,32 @@ self.addEventListener("fetch", event => {
       const cached = await cache.match(request, {ignoreSearch:true});
       if (cached) return cached;
       return (await cache.match(FALLBACK)) || Response.error();
+    }
+  })());
+});
+
+
+/* Sólo se actualizan recursos estáticos públicos. Las tablas, rutas de gestión,
+   tokens, información de clientes y borradores cifrados NO se cachean aquí. */
+self.addEventListener("message",event=>{
+  if(!event.data||event.data.type!=="PX_REFRESH_OFFLINE_ASSETS")return;
+  const reply=event.ports&&event.ports[0];
+  event.waitUntil((async()=>{
+    try{
+      const stamp=Date.now().toString(36);
+      const records=await Promise.all(ASSETS.map(async asset=>{
+        const clean=new URL(asset,SCOPE);
+        const requestUrl=new URL(clean.href);
+        requestUrl.searchParams.set("px_refresh",stamp);
+        const response=await fetch(requestUrl.href,{cache:"no-store",credentials:"omit"});
+        if(!response.ok||response.type==="opaque")throw new Error("No se pudo descargar "+asset);
+        return [clean.href,response];
+      }));
+      const cache=await caches.open(CACHE_NAME);
+      await Promise.all(records.map(([url,response])=>cache.put(url,response)));
+      reply&&reply.postMessage({ok:true,assets:records.length,version:CACHE_NAME});
+    }catch(error){
+      reply&&reply.postMessage({ok:false,error:"Recursos todavía no disponibles"});
     }
   })());
 });
