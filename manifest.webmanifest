@@ -37,6 +37,11 @@
       "name": "Asistente técnico (demo)",
       "short_name": "Asistente",
       "url": "./demo-chatbot.html"
+    },
+    {
+      "name": "Preparar trabajos sin conexión",
+      "short_name": "Trabajo local",
+      "url": "./sin-conexion.html"
     }
   ]
 }
