@@ -1,6 +1,6 @@
 /* PAMPANEXO · caché pública de lectura sin conexión.
    No almacenar APIs de Supabase, datos autenticados ni páginas internas. */
-const CACHE_NAME = "pampanexo-public-v2-brand-fix-20261021";
+const CACHE_NAME = "pampanexo-public-v3-circular-offline-work-20261021";
 const CACHE_PREFIX = "pampanexo-public-";
 const SCOPE = new URL(self.registration.scope);
 const ASSETS = [
@@ -10,6 +10,7 @@ const ASSETS = [
   "./qr.min.js",
   "./manifest.webmanifest",
   "./offline.html",
+  "./sin-conexion.html",
   "./icon-192.png",
   "./icon-512.png"
 ];
@@ -17,7 +18,8 @@ const CACHED_PATHS = new Set(ASSETS.map(s => new URL(s, SCOPE).pathname));
 const PUBLIC_PAGES = new Set([
   new URL("./", SCOPE).pathname,
   new URL("./index.html", SCOPE).pathname,
-  new URL("./demo-chatbot.html", SCOPE).pathname
+  new URL("./demo-chatbot.html", SCOPE).pathname,
+  new URL("./sin-conexion.html", SCOPE).pathname
 ]);
 const FALLBACK = new URL("./offline.html", SCOPE).href;
 self.addEventListener("install", event => {
