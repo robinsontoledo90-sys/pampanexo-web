@@ -32,8 +32,91 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:26px}.hidden{
 #alert{margin:0 0 16px}.mini-list{display:grid;gap:8px}.mini-list>div{padding:11px;border:1px solid var(--line);border-radius:8px}
 @media(max-width:900px){.split{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.header-inner{padding:16px}.brandname{font-size:20px}main{padding:0 14px;margin:22px auto}.card{padding:18px}}
 @media(max-width:530px){.fields{grid-template-columns:1fr}.fields label.wide{grid-column:auto}.user{width:100%}.toolbar{align-items:start}.symbol{width:48px;height:48px;font-size:24px}}
+
+/* PAMPANEXO · Panel corporativo v2 — diseño responsivo */
+:root{--navy:#0c2940;--deep:#071b2c;--ink:#17364a;--muted:#6c8090;--line:#e0e7ee;--paper:#f3f6f9;--copper:#b97b4d}
+body{background:#f3f6f9;color:#213849;letter-spacing:-.005em}
+header{border-bottom:1px solid #d2dfeb;background:#081f34;box-shadow:0 5px 30px #04182b1a}
+.header-inner{max-width:none;padding:17px clamp(18px,3.5vw,54px);min-height:88px}
+.mark{gap:15px}
+.symbol{width:52px;height:52px;border:1px solid #bc855c88;background:#fff9;border-radius:12px;font-size:27px}
+.brandname{font-size:23px;letter-spacing:.12em}
+.tag{letter-spacing:.15em;font-size:9px}
+.header-back{padding:9px 13px;text-decoration:none;color:#dce6ee;border:1px solid #416078;border-radius:9px;font-size:12px;font-weight:600}
+.header-back:hover{background:#fff1}
+main{max-width:none;margin:0;padding:0;min-height:calc(100vh - 147px)}
+#login{margin:72px auto 60px}
+#app{width:100%}
+.workspace{display:grid;grid-template-columns:234px minmax(0,1fr);min-height:calc(100vh - 144px)}
+.sidebar{background:linear-gradient(165deg,#102f47,#0a2439 80%);color:#d8e5ed;padding:31px 15px 24px;display:flex;flex-direction:column;border-right:1px solid #cad8e326}
+.sidebar-intro{padding:6px 14px 22px;display:grid;gap:5px}
+.sidebar-intro strong{color:#f5f8fb;font-size:12px;letter-spacing:.09em}
+.sidebar-intro small{color:#8eaabd;font-size:10px;letter-spacing:.1em}
+.sidebar-rule{height:1px;background:#365169;margin-bottom:18px;opacity:.6}
+#app .tabs{display:grid;gap:6px;margin:0}
+#app .tabs button{display:flex;align-items:center;gap:13px;text-align:left;color:#bbd0df;border:1px solid transparent;background:none;padding:13px 14px;font-weight:650;font-size:14px;border-radius:9px;width:100%;transition:background .15s}
+#app .tabs button:hover{background:#ffffff12;color:white}
+#app .tabs button.active{background:#ffffff1a;border-color:#ffffff25;color:#fff;box-shadow:inset 3px 0 0 #c88b5a}
+.nav-ico{display:inline-grid;place-items:center;width:23px;height:23px;font-size:17px;color:#dfaa7d}
+.sidebar-foot{margin-top:auto;padding:24px 14px 0;font-size:11px;color:#90aec0;line-height:1.6}
+.online{display:inline-block;background:#39ba87;width:7px;height:7px;border-radius:50%;margin-right:6px;box-shadow:0 0 0 3px #39ba8727}
+.workspace-main{padding:34px clamp(18px,3vw,48px) 44px;min-width:0;max-width:1620px;width:100%;margin:0 auto}
+#app .toolbar{margin:0 0 21px;gap:15px;border-bottom:1px solid #dce5eb;padding-bottom:22px}
+#app .toolbar h1{font-size:29px;letter-spacing:-.035em;color:#102f45;margin:3px 0 5px}
+#app .eyebrow{font-size:10px;letter-spacing:.16em;font-weight:800}
+#app .user{display:inline-flex;align-items:center;gap:8px;font-size:12px}
+#app .actions button{padding:10px 15px;background:white;border:1px solid #d8e3eb;box-shadow:0 1px 3px #12344b0a;font-size:12px}
+#app .actions #logout{background:transparent;color:#5b6d7b;box-shadow:none}
+#app .actions #refresh:hover{border-color:#9fb6c8}
+#app .card{border:1px solid #e0e7ed;border-radius:14px;box-shadow:0 3px 18px #183c5410;padding:25px;overflow:hidden}
+#app .card h2{color:#15374f;font-size:17px;letter-spacing:-.02em;margin:0 0 4px}
+.card-subtitle{margin:4px 0 21px!important;color:#758897;font-size:12px}
+.overview-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}
+.stat{border:1px solid #e0e8ee;background:white;border-radius:13px;padding:17px 20px;display:flex;justify-content:space-between;gap:8px;align-items:center;box-shadow:0 2px 12px #173a5308}
+.stat small{display:block;color:#718797;font-size:11px;font-weight:700;letter-spacing:.015em;margin-bottom:6px}
+.stat strong{font-size:27px;font-weight:850;line-height:1;color:#143349;letter-spacing:-.05em}
+.stat-symbol{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:#f4e9de;color:#ae784d;font-size:20px}
+.section-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 15px}
+.section-top h2{font-size:17px;color:#19394e;margin:0}
+.section-top p{font-size:12px;color:#718697;margin:4px 0 0}
+#app .split{grid-template-columns:minmax(0,1.65fr) minmax(330px,.9fr);align-items:start;gap:20px}
+#app .stack{gap:17px}
+#app label{font-size:12px;font-weight:700;color:#385164;gap:7px}
+#app input:not([type=checkbox]),#app select,#app textarea{border:1px solid #d4dfe7;background:#fff;border-radius:8px;min-height:44px;padding:10px 12px;font-size:13px;color:#18354b;transition:border-color .15s,box-shadow .15s}
+#app input:focus,#app select:focus,#app textarea:focus{outline:none;border-color:#739ebd;box-shadow:0 0 0 3px #6298ba21}
+#app textarea{resize:vertical}
+#app input::placeholder{color:#9eafbb}
+#app .fields{gap:16px 13px}
+#app button.primary{min-height:45px;background:#10364f;border-color:#10364f;font-size:13px}
+#app button.primary:hover{background:#1b4d69}
+#app .empty{padding:40px 18px 37px;text-align:center;border:1px dashed #d7e2eb;background:linear-gradient(180deg,#f9fbfd,#fff);border-radius:10px;margin-top:18px}
+.empty-icon{width:55px;height:55px;margin:0 auto 13px;border:1px solid #e5e9ee;border-radius:15px;display:grid;place-items:center;background:white;color:#be865e;font-size:24px}
+.empty-title{font-size:14px;font-weight:800;color:#2b4659}
+.empty-description{font-size:12px;color:#7890a0;margin-top:4px;line-height:1.6}
+.empty .mini-action{margin-top:17px;background:#fff;color:#244b65;border:1px solid #bcced9;font-size:12px;padding:9px 12px}
+#app .mini-list{gap:0}
+#app .mini-list>div{border:0;border-bottom:1px solid #edf1f5;border-radius:0;padding:15px 2px;display:flex;align-items:center;gap:12px}
+#app .mini-list>div:last-child{border-bottom:0}
+.item-avatar{flex:0 0 40px;width:40px;height:40px;border-radius:11px;background:#e9f0f5;display:grid;place-items:center;color:#496b81;font-weight:800;font-size:13px}
+.list-data{min-width:0;display:grid;gap:2px}
+.list-data strong{font-size:13px;font-weight:750;color:#203e51;overflow-wrap:anywhere}
+.list-data small{color:#8495a2;font-size:11px;overflow-wrap:anywhere}
+#app .notice{margin-bottom:16px}
+#app th{padding-top:15px;padding-bottom:15px;border-bottom:1px solid #e4ebf0}
+#app td{font-size:12px}
+#app table button{font-size:11px;padding:8px 11px;background:#eef4f8;border-color:#d6e4ed}
+#app .pill{font-size:11px}
+#app .code{font-size:11px}
+#app .table-wrap{margin-top:9px}
+.form-helper{border-top:1px solid #edf1f4;padding-top:13px;color:#7c92a2;font-size:11px;line-height:1.5}
+#app .notice.good{background:#edf8f3;color:#19674e}
+footer{background:#f3f6f9;border-top:1px solid #e5ebf0;padding:16px}
+@media(max-width:1160px){#app .split{grid-template-columns:minmax(0,1.3fr) minmax(310px,1fr)}.overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.workspace{grid-template-columns:minmax(0,1fr)}.sidebar{padding:12px 18px;background:#103149;min-height:0}.sidebar-intro,.sidebar-rule,.sidebar-foot{display:none}#app .tabs{display:flex;flex-wrap:wrap;gap:6px}#app .tabs button{width:auto;font-size:12px;padding:9px 12px}.nav-ico{width:17px;height:17px;font-size:14px}.workspace-main{padding:25px 18px}#app .split{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:520px){.header-inner{padding:12px 16px;min-height:70px}.symbol{width:42px;height:42px;font-size:23px}.brandname{font-size:18px}.tag{font-size:8px}.header-back{font-size:10px;padding:8px}.workspace-main{padding:21px 12px}#app .toolbar h1{font-size:24px}.overview-grid{gap:9px}.stat{padding:13px}.stat strong{font-size:22px}.stat-symbol{width:31px;height:31px;font-size:15px}#app .card{padding:18px}#app .fields{grid-template-columns:minmax(0,1fr)}#app .fields label.wide{grid-column:auto}#app .tabs{justify-content:space-between}#app .tabs button{gap:4px;padding:9px;font-size:11px}.nav-ico{display:none}#app .toolbar{align-items:flex-start}#app .actions{gap:7px}}
+
 </style></head><body>
-<header><div class="header-inner"><a class="mark" href="index.html"><span class="symbol">PX</span><span><span class="brandname">PAMPANEXO</span><div class="tag">GESTIÓN TECNOLÓGICA · ACCESO INTERNO</div></span></a><a href="index.html" class="small">← Volver al sitio</a></div></header>
+<header><div class="header-inner"><a class="mark" href="index.html"><span class="symbol">PX</span><span><span class="brandname">PAMPANEXO</span><div class="tag">GESTIÓN TECNOLÓGICA · ACCESO INTERNO</div></span></a><a href="index.html" class="header-back">← Volver al sitio</a></div></header>
 <main>
 <section id="login" class="card login"><div class="eyebrow">ÁREA PRIVADA</div><h1>Acceso del equipo</h1><p class="muted">Ingresa con la cuenta habilitada por PAMPANEXO.</p>
 <div id="loginAlert"></div>
@@ -44,10 +127,26 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:26px}.hidden{
 </form><p class="small muted">Las cuentas deben ser creadas y autorizadas previamente. No hay acceso público a clientes, órdenes ni pasaportes.</p>
 </section>
 <section id="app" class="hidden">
-<div class="toolbar"><div><div class="eyebrow">PANEL OPERATIVO</div><h1>Gestión de servicios</h1><span class="user" id="userInfo"></span></div><div class="actions"><button id="refresh">Actualizar</button><button id="logout">Cerrar sesión</button></div></div>
-<div id="alert" class="hidden notice"></div>
-<nav class="tabs" id="tabs" aria-label="Secciones"><button data-tab="orders" class="active">Órdenes</button><button data-tab="clients">Clientes</button><button data-tab="devices">Equipos</button><button data-tab="staff">Equipo</button></nav>
-<div id="content"></div>
+ <div class="workspace">
+   <aside class="sidebar" aria-label="Navegación del panel">
+    <div class="sidebar-intro"><strong>ADMINISTRACIÓN</strong><small>ESPACIO DE TRABAJO</small></div>
+    <div class="sidebar-rule"></div>
+    <nav class="tabs" id="tabs" aria-label="Secciones">
+      <button data-tab="orders" class="active"><span class="nav-ico" aria-hidden="true">▤</span> Órdenes</button>
+      <button data-tab="clients"><span class="nav-ico" aria-hidden="true">♧</span> Clientes</button>
+      <button data-tab="devices"><span class="nav-ico" aria-hidden="true">▣</span> Equipos</button>
+      <button data-tab="staff"><span class="nav-ico" aria-hidden="true">♙</span> Usuarios</button>
+    </nav>
+    <div class="sidebar-foot"><span class="online"></span>Conectado a PAMPANEXO<br>Gestión de servicios informáticos</div>
+   </aside>
+   <div class="workspace-main">
+     <div class="toolbar"><div><div class="eyebrow">PANEL OPERATIVO · PAMPANEXO</div><h1>Gestión de servicios</h1><span class="user" id="userInfo"></span></div><div class="actions"><button id="refresh">↻ Actualizar datos</button><button id="logout">Cerrar sesión</button></div></div>
+     <div id="alert" class="hidden notice"></div>
+     <div id="summary" class="overview-grid" aria-label="Resumen de operaciones"></div>
+     <div class="section-top"><div><h2 id="sectionTitle">Órdenes de servicio</h2><p id="sectionDesc">Gestiona trabajos, avances y el historial técnico de cada equipo.</p></div></div>
+     <div id="content"></div>
+   </div>
+ </div>
 </section>
 </main><footer>PAMPANEXO · Panel de operación con permisos y almacenamiento en Supabase · Chile</footer>
 <script>
@@ -66,7 +165,7 @@ function node(tag,attrs={},...children){
  for(const c of children.flat()){if(c!=null)e.append(c instanceof Node?c:document.createTextNode(String(c)))}return e;
 }
 function field(labelText,name,type="text",options=null){
- const input=options?node("select",{name},...options.map(x=>node("option",{value:x.value},x.label))):node("input",{type,name});
+ const input=options?node("select",{name},...options.map(x=>node("option",{value:x.value},x.label))):node("input",{type,name,placeholder:({full_name:"Ej.: Cliente de prueba",organization:"Ej.: Empresa Tarapacá",email:"ejemplo@correo.cl",phone:"+56 9 1234 5678",title:"Ej.: Mantención preventiva",device_type:"Ej.: Notebook",brand:"Ej.: Lenovo",model:"Ej.: ThinkPad"})[name]||""});
  const lab=node("label",{},labelText,input);return lab;
 }
 function notify(message,error=false){const a=byId("alert");a.className="notice"+(error?" error":" good");a.textContent=message;a.scrollIntoView({behavior:"smooth",block:"nearest"});}
@@ -121,10 +220,21 @@ const byDevice=id=>{const d=devices.find(x=>x.id===id);return d?[d.device_type,d
 function selectField(labelText,name,opts){const s=node("select",{name},...opts.map(o=>node("option",{value:o.value},o.label)));return node("label",{},labelText,s)}
 function formButton(label){return node("button",{type:"submit",class:"primary"},label)}
 function makeForm(title,fields,onSubmit){
- const card=node("section",{class:"card"},node("h2",{},title));
- const form=node("form",{class:"stack"}), f=node("div",{class:"fields"},...fields);form.append(f,formButton("Guardar"));
+ const card=node("section",{class:"card"},node("h2",{},title),node("p",{class:"card-subtitle"},"Completa los datos y guarda el registro."));
+ const form=node("form",{class:"stack"}), f=node("div",{class:"fields"},...fields);form.append(f,formButton("Guardar"),node("p",{class:"form-helper"},"La información se almacena en el sistema seguro de PAMPANEXO."));
  form.addEventListener("submit",async e=>{e.preventDefault();const btn=form.querySelector('button[type="submit"]');btn.disabled=true;try{await onSubmit(new FormData(form));form.reset();await load();notify("Guardado correctamente")}catch(err){notify(err.message,true)}finally{btn.disabled=false}});
  card.append(form);return card;
+}
+function emptyState(icon,title,detail,nextTab=null,actionLabel=""){
+ const inside=[node("span",{class:"empty-icon","aria-hidden":"true"},icon),node("div",{class:"empty-title"},title),node("div",{class:"empty-description"},detail)];
+ if(nextTab)inside.push(node("button",{class:"mini-action",type:"button",onClick:()=>{tab=nextTab;selectedOrder=null;render()}},actionLabel));
+ return node("div",{class:"empty"},...inside);
+}
+function summaryTile(title,num,icon){
+ return node("div",{class:"stat"},node("div",{},node("small",{},title),node("strong",{},String(num))),node("span",{class:"stat-symbol","aria-hidden":"true"},icon));
+}
+function listEntry(letter,title,detail){
+ return node("div",{},node("span",{class:"item-avatar","aria-hidden":"true"},letter),node("span",{class:"list-data"},node("strong",{},title),node("small",{},detail||"Sin datos adicionales")));
 }
 function orderRows(){
  const table=node("table",{},node("thead",{},node("tr",{},...["Código","Cliente","Servicio","Estado","Actualizado",""].map(x=>node("th",{},x)))));
@@ -136,11 +246,11 @@ function orderRows(){
 }
 function renderOrders(){
  const area=node("div",{class:"split"});
- const left=node("section",{class:"card"},node("h2",{},"Órdenes de servicio"),orders.length?orderRows():node("div",{class:"empty"},"Todavía no hay órdenes registradas."));
+ const left=node("section",{class:"card"},node("h2",{},"Órdenes registradas"),node("p",{class:"card-subtitle"},"Revisa el estado y los avances de cada servicio."),orders.length?orderRows():emptyState("▤","Aún no hay órdenes registradas","Primero registra un cliente y su equipo para crear la primera orden.",profile.role==="admin"?"clients":null,"Ir a clientes"));
  const right=node("div",{class:"stack"});
  if(profile.role==="admin"){
    const fields=[
-     selectField("Cliente *","client_id",[...clients.map(x=>({value:x.id,label:x.full_name}))]),
+     selectField("Cliente *","client_id",[{value:"",label:clients.length?"Selecciona un cliente":"Primero registra un cliente"},...clients.map(x=>({value:x.id,label:x.full_name}))]),
      selectField("Equipo (opcional)","device_id",[{value:"",label:"Sin equipo"},...devices.map(x=>({value:x.id,label:byDevice(x.id)+" · "+byClient(x.client_id)}))]),
      field("Descripción del servicio *","title"),
      selectField("Responsable técnico","assigned_to",[{value:"",label:"Por asignar"},...staff.filter(x=>x.role==="technician"&&x.active).map(x=>({value:x.user_id,label:x.full_name}))]),
@@ -184,33 +294,39 @@ function renderOrders(){
 }
 function renderClients(){
  const area=node("div",{class:"split"});
- const listing=node("section",{class:"card"},node("h2",{},"Clientes registrados"));
- const items=node("div",{class:"mini-list"},...clients.map(c=>node("div",{},node("strong",{},c.full_name),node("div",{class:"small muted"},[c.organization,c.email,c.phone].filter(Boolean).join(" · ")))));
- listing.append(clients.length?items:node("p",{class:"muted"},"Todavía no hay clientes"));
+ const listing=node("section",{class:"card"},node("h2",{},"Directorio de clientes"),node("p",{class:"card-subtitle"},"Personas y empresas que confían en nuestros servicios."));
+ const items=node("div",{class:"mini-list"},...clients.map(c=>listEntry((c.full_name||"C").trim().slice(0,1).toUpperCase(),c.full_name,[c.organization,c.email,c.phone].filter(Boolean).join(" · "))));
+ listing.append(clients.length?items:emptyState("♧","Todavía no tienes clientes","Registra tu primer cliente desde el formulario de la derecha."));
  area.append(listing);
- if(profile.role==="admin"){area.append(makeForm("Registrar cliente",[
- field("Nombre o razón social *","full_name"),field("Empresa (opcional)","organization"),field("Correo","email","email"),field("Teléfono","phone","tel")
+ if(profile.role==="admin"){area.append(makeForm("Nuevo cliente",[
+ field("Nombre o razón social *","full_name"),field("Empresa (opcional)","organization"),field("Correo electrónico","email","email"),field("Teléfono de contacto","phone","tel")
  ],async d=>{const obj={full_name:val(d.get("full_name")).trim(),organization:d.get("organization")||null,email:d.get("email")||null,phone:d.get("phone")||null,created_by:user.id};await api("px_clients","POST",obj)}))}
  return area;
 }
 function renderDevices(){
- const area=node("div",{class:"split"}),listing=node("section",{class:"card"},node("h2",{},"Equipos registrados"));
- const items=node("div",{class:"mini-list"},...devices.map(d=>node("div",{},node("strong",{},byDevice(d.id)),node("div",{class:"small muted"},"Propietario: "+byClient(d.client_id)))));
- listing.append(devices.length?items:node("p",{class:"muted"},"Todavía no hay equipos"));area.append(listing);
- if(profile.role==="admin"){
-  area.append(makeForm("Registrar equipo",[
-   selectField("Propietario *","client_id",clients.map(c=>({value:c.id,label:c.full_name}))),
-   field("Tipo de equipo","device_type"),field("Marca","brand"),field("Modelo","model")
-  ],async d=>{const obj={client_id:d.get("client_id"),device_type:d.get("device_type")||"Computador",brand:d.get("brand")||null,model:d.get("model")||null,created_by:user.id};await api("px_devices","POST",obj)}))
- }return area;
+ const area=node("div",{class:"split"});
+ const listing=node("section",{class:"card"},node("h2",{},"Inventario de equipos"),node("p",{class:"card-subtitle"},"Dispositivos registrados y vinculados a sus propietarios."));
+ const items=node("div",{class:"mini-list"},...devices.map(d=>listEntry("▣",byDevice(d.id),"Propietario: "+byClient(d.client_id))));
+ listing.append(devices.length?items:emptyState("▣","Aún no hay equipos","Registra un equipo para comenzar su Pasaporte Tecnológico.",profile.role==="admin"?"clients":null,"Ver clientes"));
+ area.append(listing);
+ if(profile.role==="admin"){area.append(makeForm("Nuevo equipo",[
+ selectField("Propietario *","client_id",[{value:"",label:clients.length?"Selecciona un cliente":"Primero registra un cliente"},...clients.map(c=>({value:c.id,label:c.full_name}))]),
+ field("Tipo de equipo *","device_type"),field("Marca","brand"),field("Modelo","model")
+ ],async d=>{if(!d.get("client_id"))throw Error("Debes seleccionar un cliente");const obj={client_id:d.get("client_id"),device_type:d.get("device_type")||"Computador",brand:d.get("brand")||null,model:d.get("model")||null,created_by:user.id};await api("px_devices","POST",obj)}))}
+ return area;
 }
 function renderStaff(){
- const card=node("section",{class:"card"},node("h2",{},"Usuarios habilitados"),node("p",{class:"muted"},"Los perfiles nuevos se crean en estado pendiente hasta que el administrador los autorice."));
- const items=node("div",{class:"mini-list"},...staff.map(x=>node("div",{},node("strong",{},x.full_name),node("div",{class:"small muted"},"Rol: "+x.role+" · "+(x.active?"Habilitado":"Pendiente")))));
- card.append(items);return card;
+ const card=node("section",{class:"card"},node("h2",{},"Usuarios del sistema"),node("p",{class:"card-subtitle"},"Las cuentas nuevas permanecen pendientes hasta que un administrador las habilite en Supabase."));
+ const items=node("div",{class:"mini-list"},...staff.map(x=>listEntry((x.full_name||"U").slice(0,1).toUpperCase(),x.full_name,(x.role==="admin"?"Administrador":x.role==="technician"?"Técnico":"Pendiente")+" · "+(x.active?"Acceso habilitado":"Sin acceso"))));
+ card.append(staff.length?items:emptyState("♙","No hay usuarios","Aquí aparecerán las cuentas habilitadas."));return card;
 }
 function render(){
  byId("tabs").querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+ const pending=orders.filter(o=>!["delivered","cancelled"].includes(o.status)).length;
+ byId("summary").replaceChildren(summaryTile("Clientes",clients.length,"♧"),summaryTile("Equipos",devices.length,"▣"),summaryTile("Órdenes",orders.length,"▤"),summaryTile("En proceso",pending,"◷"));
+ const headers={orders:["Órdenes de servicio","Control de solicitudes, avance técnico y Pasaporte Tecnológico."],clients:["Gestión de clientes","Registro centralizado de personas y empresas."],devices:["Inventario de equipos","Información de los dispositivos vinculados a cada cliente."],staff:["Usuarios y permisos","Consulta los integrantes que tienen acceso al sistema."]};
+ byId("sectionTitle").textContent=headers[tab][0];
+ byId("sectionDesc").textContent=headers[tab][1];
  const content=byId("content");content.replaceChildren(tab==="orders"?renderOrders():tab==="clients"?renderClients():tab==="devices"?renderDevices():renderStaff());
 }
 byId("loginForm").addEventListener("submit",async e=>{
