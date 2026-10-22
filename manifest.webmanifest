@@ -34,7 +34,7 @@
       "url": "./index.html"
     },
     {
-      "name": "Asistente técnico (demo)",
+      "name": "Asistente técnico local",
       "short_name": "Asistente",
       "url": "./demo-chatbot.html"
     },
