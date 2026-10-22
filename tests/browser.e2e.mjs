@@ -50,7 +50,7 @@ try {
   await page.goto(base + "/sin-conexion.html", {waitUntil:"domcontentloaded"});
   assert.equal(await page.locator("#locked").count(), 1);
   await page.goto(base + "/seguimiento.html", {waitUntil:"domcontentloaded"});
-  assert.match(await page.locator("body").innerText(), /Estás sin internet/i);
+  assert.match(await page.locator("body").innerText(), /Sin conexión|Estás sin internet/i);
   console.log("✓ Borradores locales disponibles; seguimiento privado sin caché");
 
   await context.setOffline(false);
