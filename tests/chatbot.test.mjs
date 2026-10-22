@@ -31,7 +31,7 @@ function fullAnswers() {
 
 test("el JavaScript completo y el JavaScript embebido compilan", () => {
   assert.doesNotThrow(() => new vm.Script(embedded, {filename:"asistente-embebido.js"}));
-  const scripts = [...full.matchAll(/<script(?:\\s[^>]*)?>([\\s\\S]*?)<\\/script>/gi)]
+  const scripts = [...full.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/gi)]
     .map(match => match[1]).filter(Boolean);
   assert.ok(scripts.length > 0);
   for (const js of scripts) {
