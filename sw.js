@@ -1,6 +1,6 @@
 /* PAMPANEXO · caché pública de lectura sin conexión.
    No almacenar APIs de Supabase, datos autenticados ni páginas internas. */
-const CACHE_NAME = "pampanexo-public-v6-chat-20261021";
+const CACHE_NAME = "pampanexo-public-v7-chat-20261022";
 const CACHE_PREFIX = "pampanexo-public-";
 const SCOPE = new URL(self.registration.scope);
 const ASSETS = [
