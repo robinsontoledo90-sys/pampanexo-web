@@ -1,7 +1,7 @@
 {
   "name": "PAMPANEXO · Consultoría y Soluciones Tecnológicas",
   "short_name": "PAMPANEXO",
-  "description": "PAMPANEXO: servicios informáticos e información corporativa disponible sin conexión.",
+  "description": "PAMPANEXO: reciclaje y servicios informáticos con asistente técnico local y preparación de trabajos sin conexión.",
   "lang": "es-CL",
   "start_url": "./",
   "scope": "./",
@@ -34,7 +34,7 @@
       "url": "./index.html"
     },
     {
-      "name": "Asistente técnico (demo)",
+      "name": "Asistente técnico local",
       "short_name": "Asistente",
       "url": "./demo-chatbot.html"
     },

@@ -1,0 +1,40 @@
+name: Chatbot y PWA
+on:
+  push:
+    branches:
+      - main
+      - mejora-chatbot-offline-20261022
+  pull_request:
+    paths:
+      - 'asistente-embebido.js'
+      - 'demo-chatbot.html'
+      - 'sw.js'
+      - 'manifest.webmanifest'
+      - 'tests/**'
+      - 'actualizacion.js'
+      - 'index.html'
+      - 'sin-conexion.html'
+      - 'seguimiento.html'
+      - '.github/workflows/chatbot.yml'
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Probar lógica local y recursos sin conexión
+        run: node --test tests/chatbot.test.mjs
+      - name: Preparar navegador Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Probar navegación y chatbot con y sin internet
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/pampanexo-http.log 2>&1 &
+          node tests/browser.e2e.mjs

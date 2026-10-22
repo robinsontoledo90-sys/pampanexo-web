@@ -38,8 +38,20 @@ const KEY="sb_publishable_il9GdO3XU7dNPuGPFTrS2A_dZX6df-5";
 const labels={received:"Recibido",diagnosing:"En diagnóstico",awaiting_approval:"Esperando aprobación",in_progress:"En proceso",ready:"Listo para entrega",delivered:"Entregado",cancelled:"Cancelado"};
 const form=document.getElementById("form"),inp=document.getElementById("codigo"),out=document.getElementById("resultado"),msg=document.getElementById("msg"),button=document.getElementById("buscar");
 function showMsg(t,error=false){msg.hidden=!t;msg.textContent=t;msg.className=error?"notice error":"notice";}
+function updateConnectivity(){
+ const offline=!navigator.onLine;
+ button.disabled=offline;
+ button.textContent=offline?"Sin conexión":"Consultar";
+ if(offline){
+  out.hidden=true;
+  showMsg("Sin conexión: el seguimiento y el Pasaporte Tecnológico requieren internet. Puedes seguir usando el asistente técnico local y volver a consultar cuando tengas señal.",true);
+ }else if(msg.textContent.startsWith("Sin conexión:"))showMsg("");
+}
+window.addEventListener("online",updateConnectivity);
+window.addEventListener("offline",updateConnectivity);
 function date(d){return d?new Date(d).toLocaleString("es-CL",{year:"numeric",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"}):"Sin registro"}
 async function buscar(code){
+ if(!navigator.onLine){updateConnectivity();return}
  out.hidden=true;showMsg("");button.disabled=true;button.textContent="Consultando...";
  try{
   const r=await fetch(BASE+"/rest/v1/rpc/px_public_tracking",{method:"POST",headers:{"Content-Type":"application/json","apikey":KEY},body:JSON.stringify({p_code:code})});
@@ -63,9 +75,10 @@ async function buscar(code){
    wrap.append(box)
   }
   out.hidden=false;out.scrollIntoView({behavior:"smooth",block:"start"});
- }catch(e){showMsg(e.message,true)}finally{button.disabled=false;button.textContent="Consultar"}
+ }catch(e){showMsg(navigator.onLine?e.message:"La consulta no pudo completarse: no hay conexión. Vuelve a intentarlo cuando tengas internet.",true)}finally{button.disabled=false;button.textContent="Consultar";updateConnectivity()}
 }
 form.addEventListener("submit",e=>{e.preventDefault();const code=inp.value.trim().toUpperCase();if(!/^PX-[0-9A-F]{24}$/.test(code)){showMsg("El código debe comenzar con PX- y contener 24 caracteres alfanuméricos.",true);return}buscar(code)});
 const param=new URLSearchParams(location.search).get("codigo");
+updateConnectivity();
 if(param){inp.value=param;form.requestSubmit()}
 </script></body></html>
