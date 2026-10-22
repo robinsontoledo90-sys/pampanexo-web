@@ -23,3 +23,15 @@ https://robinsontoledo90-sys.github.io/pampanexo-web/
 - `gestion.html`: panel autenticado en Supabase, requiere conexión.
 - `seguimiento.html`: consulta real con código, requiere conexión.
 - `sin-conexion.html`: borradores cifrados locales con sincronización manual al recuperar internet.
+
+## Chatbot · continuación del 22 de octubre de 2026
+
+El asistente flotante y su demostración completa mantienen la orientación técnica basada en reglas y funcionan con/sin conexión. El chatbot no es IA generativa, no accede a órdenes, no envía ni persiste mensajes y permite borrar el historial visible.
+
+- Con conexión: mostrar orientación local y permitir acceso por enlaces a las consultas reales.
+- Sin conexión: mostrar claramente ese estado, seguir resolviendo preguntas locales y explicar que seguimiento real, contacto y sincronización requieren internet.
+- La versión instalable precarga los mismos archivos públicos mediante `sw.js` (`pampanexo-public-v7-chat-20261022`); al recuperar conexión, `actualizacion.js` solicita su renovación.
+- La demo de inventario almacena registros de prueba sin cifrado en el navegador; utilizar **solo datos ficticios**, no información real de clientes.
+- Ejecutar pruebas automatizadas con `node --test tests/chatbot.test.mjs`. La comprobación en móvil con una PWA realmente instalada sigue siendo un paso manual necesario.
+
+Consulta [la auditoría y el procedimiento de pruebas del chatbot](docs/CHATBOT.md) para archivos modificados, seguridad, despliegue y limitaciones.
