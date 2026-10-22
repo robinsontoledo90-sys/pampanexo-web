@@ -29,6 +29,16 @@ function fullAnswers() {
   return vm.runInNewContext(rules + fn + "\ndiagnose;", {});
 }
 
+test("el JavaScript completo y el JavaScript embebido compilan", () => {
+  assert.doesNotThrow(() => new vm.Script(embedded, {filename:"asistente-embebido.js"}));
+  const scripts = [...full.matchAll(/<script(?:\\s[^>]*)?>([\\s\\S]*?)<\\/script>/gi)]
+    .map(match => match[1]).filter(Boolean);
+  assert.ok(scripts.length > 0);
+  for (const js of scripts) {
+    assert.doesNotThrow(() => new vm.Script(js, {filename:"demo-chatbot.html"}));
+  }
+});
+
 test("el asistente flotante responde sin red ni acceso a Supabase", () => {
   const answer = localAnswers();
   assert.match(answer("mi notebook no enciende"), /no enciende/i);
