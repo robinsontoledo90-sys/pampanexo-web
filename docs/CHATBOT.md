@@ -17,10 +17,10 @@ No hay compilador: el proyecto es HTML, CSS y JavaScript nativo, publicado como 
 ## Mejoras de esta fase
 1. Priorización de humo, chispas y riesgos eléctricos, antes de reciclaje, seguimiento u otras respuestas.
 2. Señalización real del modo local sin conexión en ambos asistentes, sin dejar de responder preguntas técnicas.
-3. En la ventana flotante, bloqueo explicativo de enlaces a seguimiento y contacto cuando no hay red. El enlace a la demo local continúa disponible.
+3. En la ventana flotante, el enlace a seguimiento explica la dependencia de internet; el acceso a Contacto (información local) y la demo permanecen disponibles incluso offline.
 4. Borrado explícito del historial temporal del chat y explicación de privacidad.
 5. Armonización de respuestas sobre reciclaje, reutilización, Pasaporte Tecnológico y funcionamiento sin red entre las dos experiencias.
-6. Restricción de recomendaciones de manipulación eléctrica peligrosa en la demostración.
+6. Restricción de recomendaciones de manipulación eléctrica peligrosa en la demostración y aviso de falta de red en seguimiento real.
 7. Renovación de caché a `pampanexo-public-v7-chat-20261022` y descripción/acceso directo del manifiesto.
 
 ## Protección de datos y permisos
@@ -30,7 +30,7 @@ El proyecto Supabase `qzulvugtstkqohxcsbqf` dispone de seis tablas públicas con
 Los avisos de seguridad de Supabase detectados deben revisarse aparte sin cambiar esta publicación: funciones `SECURITY DEFINER` expuestas intencionalmente a roles públicos/autenticados y protección contra contraseñas filtradas desactivada. Verificar que cada función valida roles y limita los datos devueltos, especialmente `px_public_tracking`.
 
 ## Pruebas
-Automatizadas: ejecutar `node --test tests/chatbot.test.mjs` con Node 22. GitHub Actions (`.github/workflows/chatbot.yml`) ejecuta esas pruebas al publicar cambios.
+Automatizadas: ejecutar `node --test tests/chatbot.test.mjs` con Node 22. GitHub Actions (`.github/workflows/chatbot.yml`) ejecuta esas pruebas y pruebas de navegación reales con Chromium (online y offline) al publicar cambios.
 
 Comprobación manual **en un navegador real**:
 1. Abrir `index.html`, pulsar «Asistente técnico» y confirmar que responde sin errores de consola. Probar «no enciende», «reutilizar», «seguimiento» y «humo».
@@ -45,8 +45,8 @@ Comprobación manual **en un navegador real**:
 **Nota:** la prueba automatizada es una validación de lógica/caché; no reemplaza la prueba manual en un dispositivo instalando la PWA.
 
 ## Archivos de esta entrega
-- Modificados: `asistente-embebido.js`, `demo-chatbot.html`, `sw.js`, `manifest.webmanifest`, `README.md`.
-- Nuevos: `tests/chatbot.test.mjs`, `.github/workflows/chatbot.yml`, `docs/CHATBOT.md`.
+- Modificados: `asistente-embebido.js`, `demo-chatbot.html`, `seguimiento.html`, `sw.js`, `manifest.webmanifest`, `README.md`.
+- Nuevos: `tests/chatbot.test.mjs`, `tests/browser.e2e.mjs`, `.github/workflows/chatbot.yml`, `docs/CHATBOT.md`.
 
 ## Despliegue
 Integrar a `main` tras revisar las pruebas, dejar que GitHub Pages publique los cambios y abrir la web con internet para descargar la caché nueva. La PWA instalada deberá recibir la actualización al reconectarse y revisitar la aplicación; **sin internet no puede descargar código nuevo**.
