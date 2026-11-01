@@ -70,9 +70,9 @@ return best;
 function answer(text){
 const t=normalize(text);
 if(!t)return "Cuéntame qué ocurre con tu equipo y te daré una orientación inicial.";
-if(/(hum[oó]|chisp|fuego|quemad|electric|descarga)/.test(t))
+if(/(humo|chisp|fuego|quemad|riesgo electrico|descarga electrica|cortocircuito|corto circuito)/.test(t))
 return "⚠️ Por seguridad, deja de utilizar el equipo si desprende humo, chispas, olor a quemado o presenta un riesgo eléctrico. Desconéctalo solo si puedes hacerlo sin peligro. No abras la fuente de alimentación ni manipules componentes energizados. Solicita revisión técnica.";
-if(/(modo sin conexion|funciona sin internet|usar sin internet|version sin conexion|trabajar sin conexion)/.test(t))
+if(/(bateria hinchada|bateria inflada|bateria abultada)/.test(t))\nreturn "⚠️ Batería dañada: deja de usar y cargar el equipo. No presiones, perfores ni intentes retirar una batería hinchada. Aléjala de materiales inflamables si puedes hacerlo sin riesgo y solicita evaluación técnica especializada.";\nif(/(modo sin conexion|funciona sin internet|usar sin internet|version sin conexion|trabajar sin conexion)/.test(t))
 return "📴 Uso sin internet\n\nEste asistente entrega orientación local sin conectarse a servidores. También puedes abrir la demostración completa y preparar borradores cifrados desde la versión instalable.\n\nPara ver el estado real de una orden, acceder a gestión o sincronizar un borrador, debes recuperar la conexión.";
 if(/(recicl|reutiliz|reacondicion|segunda vida|recuper|en desuso|desechar|chatarra|electronico)/.test(t))
 return "♻ Segunda vida tecnológica\n\nEn PAMPANEXO evaluamos si un computador, periférico o componente puede repararse o reutilizarse antes de desecharlo.\n\n1. Cuéntanos qué equipo tienes y cuál es su estado.\n2. Podemos evaluar opciones de reparación, actualización o aprovechamiento de piezas cuando sea seguro.\n3. Si ya no se puede recuperar, orientamos sobre disposición con gestores autorizados.\n\nPuedes solicitar una evaluación en la sección Contacto. La recuperación depende de cada caso.";
