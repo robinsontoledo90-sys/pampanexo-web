@@ -23,7 +23,7 @@ const head=document.createElement("header");head.className="pxbot-head";
 const badge=document.createElement("span");badge.className="pxbot-monogram";badge.textContent="PX";
 const ident=document.createElement("div");ident.className="pxbot-head-title";
 const name=document.createElement("strong");name.textContent="PAMPANEXO";
-const sub=document.createElement("small");sub.textContent="ASISTENTE TÉCNICO · DEMOSTRACIÓN";
+const sub=document.createElement("small");sub.textContent="ASISTENTE TÉCNICO · ORIENTACIÓN INICIAL";
 ident.append(name,sub);
 const close=document.createElement("button");close.type="button";close.className="pxbot-close";close.setAttribute("aria-label","Cerrar chat");close.textContent="×";
 head.append(badge,ident,close);
@@ -48,6 +48,30 @@ for(const [label,href] of [["Consultar orden","./seguimiento.html"],["Evaluar eq
 const a=document.createElement("a");a.href=href;a.textContent=label;actions.append(a);
 }
 const clear=document.createElement("button");clear.type="button";clear.className="pxbot-clear";clear.textContent="Borrar conversación";clear.setAttribute("aria-label","Borrar conversación de esta página");actions.append(clear);
+
+const cotizar = document.createElement("a");
+cotizar.href = "https://wa.me/56964492338?text=" +
+  encodeURIComponent("Hola, quiero solicitar una cotización en Pampanexo.");
+
+cotizar.addEventListener("click", () => {
+ const descripcion = input.value.trim() || ultimaConsulta;
+  const mensaje =
+    "Hola, quiero solicitar una cotización en Pampanexo.\n\n" +
+    (descripcion
+      ? "Problema de mi equipo: " + descripcion
+      : "Necesito información sobre sus servicios técnicos.");
+
+  cotizar.href =
+    "https://wa.me/56964492338?text=" +
+    encodeURIComponent(mensaje);
+});
+cotizar.target = "_blank";
+cotizar.rel = "noopener noreferrer";
+cotizar.textContent = "Cotizar por WhatsApp";
+cotizar.style.cssText =
+  "display:inline-block;padding:10px 14px;background:#167c50;color:white;border-radius:8px;text-decoration:none;font-weight:bold;";
+actions.append(cotizar);
+
 panel.append(head,disclaimer,net,feed,shortcuts,form,actions);
 wrap.append(panel,button);document.body.append(wrap);
 function message(isUser,text){
@@ -70,6 +94,9 @@ return best;
 function answer(text){
 const t=normalize(text);
 if(!t)return "Cuéntame qué ocurre con tu equipo y te daré una orientación inicial.";
+if (/(cotiz|presupuesto|precio|valor|mantencion|mantención|reparacion|reparación|servicio tecnico|servicio técnico)/.test(t)) {
+  return "En PAMPANEXO realizamos mantención, reparación y soporte informático en Iquique y Alto Hospicio. Para cotizar, cuéntanos qué equipo tienes y cuál es el problema. Puedes solicitar una cotización directamente por WhatsApp al +56 9 6449 2338.";
+}
 if(/(hum[oó]|chisp|fuego|quemad|electric|descarga)/.test(t))
 return "⚠️ Por seguridad, deja de utilizar el equipo si desprende humo, chispas, olor a quemado o presenta un riesgo eléctrico. Desconéctalo solo si puedes hacerlo sin peligro. No abras la fuente de alimentación ni manipules componentes energizados. Solicita revisión técnica.";
 if(/(modo sin conexion|funciona sin internet|usar sin internet|version sin conexion|trabajar sin conexion)/.test(t))
@@ -129,9 +156,13 @@ clear.addEventListener("click",()=>{
  input.focus({preventScroll:true});
 });
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!panel.hidden)closePanel()});
+let ultimaConsulta = "";
 form.addEventListener("submit",e=>{
 e.preventDefault();const t=input.value.trim();if(!t)return;
-message(true,t);input.value="";message(false,answer(t));input.focus({preventScroll:true});
+ultimaConsulta = t;
+message(true,t);
+input.value = "";
+message(false,answer(t));
 });
 for(const [label,prompt] of promptButtons){
 const b=document.createElement("button");b.type="button";b.textContent=label;
